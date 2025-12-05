@@ -1,0 +1,7 @@
+{{ with .Params.hide_footer }}
+ <!-- No footer here! -->
+{{ else }}
+ <footer>
+   Website made by {{ "Chris2000SP" }} in {{ now.Year }} <!--<a href="/impressum/">Impressum</a> <a href="/dsgvo/">DSGVO</a>-->
+ </footer>
+{{ end }}

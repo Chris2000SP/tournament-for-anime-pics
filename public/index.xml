@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>🏆 Tournament for Anime Pics on Turnier-for-Anime-Pics</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in 🏆 Tournament for Anime Pics on Turnier-for-Anime-Pics</description>
+    <generator>Hugo</generator>
+    <language>de-de</language>
+    <lastBuildDate>Thu, 04 Dec 2025 01:32:57 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>🏆 Tournament for Anime Pics</title>
+      <link>http://localhost:1313/turnier/</link>
+      <pubDate>Thu, 04 Dec 2025 01:32:57 +0100</pubDate>
+      <guid>http://localhost:1313/turnier/</guid>
+      <description>&lt;h1 id=&#34;-tournament-for-anime-pics&#34;&gt;🏆 Tournament for Anime Pics&lt;/h1&gt;&#xA;&#xA;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;&#x9;&#xA;    &lt;div class=&#34;setup-phase&#34; id=&#34;setupPhase&#34;&gt;&#xA;        &lt;div class=&#34;phase-indicator&#34;&gt;&#xA;            📸 Setup Phase - Bilder hochladen &amp; anordnen&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;upload-area&#34; id=&#34;uploadArea&#34;&gt;&#xA;            &lt;h2&gt;📁 Bilder hochladen&lt;/h2&gt;&#xA;            &lt;p&gt;Klicken oder Bilder hierher ziehen&lt;/p&gt;&#xA;            &lt;input type=&#34;file&#34; id=&#34;fileInput&#34; multiple accept=&#34;image/*&#34;&gt;&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;participants-grid&#34; id=&#34;participantsGrid&#34;&gt;&lt;/div&gt;&#xA;&#xA;        &lt;button class=&#34;start-btn&#34; id=&#34;startBtn&#34; disabled&gt;&#xA;            Tournament starten&#xA;        &lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;    &lt;div class=&#34;tournament-phase&#34; id=&#34;tournamentPhase&#34;&gt;&#xA;        &lt;div class=&#34;phase-indicator&#34;&gt;&#xA;            ⚔️ Tournament läuft - Klicke auf den Gewinner jedes Matches&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;current-match-indicator&#34; id=&#34;currentMatchIndicator&#34;&gt;&lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;bracket-container&#34;&gt;&#xA;            &lt;div class=&#34;bracket&#34; id=&#34;bracket&#34;&gt;&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;button class=&#34;reset-btn&#34; id=&#34;resetBtn&#34;&gt;Neues Tournament starten&lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;script src=&#34;http://localhost:1313/js/bracket.js&#34;&gt;&lt;/script&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h3 id=&#34;lorem&#34;&gt;lorem&lt;/h3&gt;&#xA;&#xA;&#xA;&lt;div class=&#34;container&#34;&gt;&#xA;&#x9;&#xA;    &lt;div class=&#34;setup-phase&#34; id=&#34;setupPhase&#34;&gt;&#xA;        &lt;div class=&#34;phase-indicator&#34;&gt;&#xA;            📸 Setup Phase - Bilder hochladen &amp; anordnen&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;upload-area&#34; id=&#34;uploadArea&#34;&gt;&#xA;            &lt;h2&gt;📁 Bilder hochladen&lt;/h2&gt;&#xA;            &lt;p&gt;Klicken oder Bilder hierher ziehen&lt;/p&gt;&#xA;            &lt;input type=&#34;file&#34; id=&#34;fileInput&#34; multiple accept=&#34;image/*&#34;&gt;&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;participants-grid&#34; id=&#34;participantsGrid&#34;&gt;&lt;/div&gt;&#xA;&#xA;        &lt;button class=&#34;start-btn&#34; id=&#34;startBtn&#34; disabled&gt;&#xA;            Tournament starten&#xA;        &lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;    &lt;div class=&#34;tournament-phase&#34; id=&#34;tournamentPhase&#34;&gt;&#xA;        &lt;div class=&#34;phase-indicator&#34;&gt;&#xA;            ⚔️ Tournament läuft - Klicke auf den Gewinner jedes Matches&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;current-match-indicator&#34; id=&#34;currentMatchIndicator&#34;&gt;&lt;/div&gt;&#xA;&#xA;        &lt;div class=&#34;bracket-container&#34;&gt;&#xA;            &lt;div class=&#34;bracket&#34; id=&#34;bracket&#34;&gt;&lt;/div&gt;&#xA;        &lt;/div&gt;&#xA;&#xA;        &lt;button class=&#34;reset-btn&#34; id=&#34;resetBtn&#34;&gt;Neues Tournament starten&lt;/button&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;script src=&#34;http://localhost:1313/js/bracket.js&#34;&gt;&lt;/script&gt;</description>
+    </item>
+  </channel>
+</rss>

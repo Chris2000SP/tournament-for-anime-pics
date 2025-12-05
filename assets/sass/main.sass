@@ -1,0 +1,595 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+body 
+  width: 1500px
+  margin: 0 auto
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  min-height: 100vh
+  padding: 20px
+
+h1 
+  text-align: center
+  color: #667eea
+  margin-bottom: 30px
+  font-size: 2.5em
+
+hr
+  height: 1px
+  background: linear-gradient(to right, transparent, #888, transparent)
+  margin: 2em 0
+
+
+.phase-indicator 
+  text-align: center
+  margin-bottom: 20px
+  padding: 15px
+  background: #f0f4ff
+  border-radius: 10px
+  font-size: 1.2em
+  font-weight: bold
+  color: #667eea
+
+/* Setup Phase */
+.setup-phase 
+  display: block
+
+.upload-area 
+  border: 3px dashed #667eea
+  border-radius: 15px
+  padding: 40px
+  text-align: center
+  margin-bottom: 30px
+  background: #f8f9ff
+  cursor: pointer
+  transition: all 0.3s
+
+.upload-area:hover 
+  background: #f0f4ff
+  border-color: #764ba2
+
+.upload-area.dragover 
+  background: #e8ecff
+  border-color: #764ba2
+  transform: scale(1.02)
+
+.participants-header 
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 20px
+  padding: 15px
+  background: #f8f9ff
+  border-radius: 10px
+
+.participants-count 
+  font-size: 1.2em
+  font-weight: bold
+  color: #667eea
+
+
+.clear-all-btn 
+  padding: 10px 20px
+  background: #ff6b6b
+  color: white
+  border: none
+  border-radius: 8px
+  cursor: pointer
+  font-weight: bold
+  transition: all 0.3s
+
+
+.clear-all-btn:hover 
+  background: #ff5252
+  transform: translateY(-2px)
+
+.participants-grid 
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr))
+  gap: 20px
+  margin-bottom: 30px
+  min-height: 200px
+  max-height: 600px
+  overflow-y: auto
+  padding: 10px
+  background: #f8f9ff
+  border-radius: 10px
+
+
+.participant-card 
+  background: white
+  border: 2px solid #e0e0e0
+  border-radius: 10px
+  padding: 10px
+  cursor: move
+  transition: all 0.3s
+  position: relative
+        
+
+.participant-card:hover 
+  transform: translateY(-5px)
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15)
+  border-color: #667eea
+        
+
+.participant-card.dragging 
+  opacity: 0.5
+        
+
+.participant-card img 
+  width: 100%
+  height: 150px
+  object-fit: cover
+  border-radius: 5px
+  margin-bottom: 8px
+        
+
+.participant-name 
+  text-align: center
+  font-size: 0.9em
+  color: #333
+  word-break: break-word
+        
+
+.remove-btn 
+  position: absolute
+  top: 15px
+  right: 15px
+  background: rgba(255, 59, 48, 0.9)
+  color: white
+  border: none
+  width: 25px
+  height: 25px
+  border-radius: 50%
+  cursor: pointer
+  font-size: 16px
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: all 0.2s
+  z-index: 10
+        
+
+.remove-btn:hover 
+  background: rgb(255, 59, 48)
+  transform: scale(1.1)
+        
+
+.start-btn 
+  display: block
+  width: 100%
+  max-width: 400px
+  margin: 0 auto
+  padding: 20px
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  color: white
+  border: none
+  border-radius: 10px
+  font-size: 1.3em
+  font-weight: bold
+  cursor: pointer
+  transition: all 0.3s
+        
+
+.start-btn:hover:not(:disabled) 
+  transform: translateY(-2px)
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4)
+        
+
+.start-btn:disabled 
+  opacity: 0.5
+  cursor: not-allowed
+
+/* Tournament Phase */
+.tournament-phase 
+  display: none
+
+.tournament-progress 
+  display: flex
+  justify-content: space-around
+  margin-bottom: 30px
+  padding: 20px
+  background: #f0f4ff
+  border-radius: 10px
+  flex-wrap: wrap
+  gap: 15px
+        
+
+.progress-stat 
+  text-align: center
+        
+
+.progress-stat-value 
+  font-size: 2em
+  font-weight: bold
+  color: #667eea
+        
+
+.progress-stat-label 
+  font-size: 0.9em
+  color: #666
+  margin-top: 5px
+
+
+.match-container 
+  max-width: 900px
+  margin: 0 auto
+  padding: 20px
+
+.round-title 
+    text-align: center
+    font-size: 1.8em
+    color: #667eea
+    margin-bottom: 30px
+    font-weight: bold
+
+
+.match 
+    display: flex
+    gap: 20px
+    justify-content: center
+    margin-bottom: 40px
+        
+
+.competitor 
+    flex: 1
+    max-width: 400px
+    background: white
+    border: 3px solid #e0e0e0
+    border-radius: 15px
+    padding: 20px
+    cursor: pointer
+    transition: all 0.3s
+    text-align: center
+
+
+.competitor:hover 
+    transform: scale(1.05)
+    border-color: #667eea
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3)
+
+
+.competitor img 
+    width: 100%
+    height: 300px
+    object-fit: cover
+    border-radius: 10px
+    margin-bottom: 15px
+ 
+
+.competitor-name 
+    font-size: 1.2em
+    font-weight: bold
+    color: #333
+        
+
+.vs-divider 
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 2em
+    font-weight: bold
+    color: #764ba2
+
+
+
+.bracket-container 
+  overflow-x: auto
+  padding: 40px 20px
+  background: #f8f9ff
+  border-radius: 15px
+        
+
+.bracket 
+  display: flex
+  justify-content: center
+  gap: 60px
+  min-width: fit-content
+        
+
+.bracket-column 
+  display: flex
+  flex-direction: column
+  justify-content: space-around
+  min-width: 200px
+
+.round-header 
+  text-align: center
+  font-size: 1.2em
+  font-weight: bold
+  color: #667eea
+  margin-bottom: 20px
+  padding: 10px
+  background: white
+  border-radius: 8px
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1)
+        
+
+.match-pair 
+  display: flex
+  flex-direction: column
+  gap: 10px
+  margin: 20px 0
+  position: relative
+        
+
+.bracket-item 
+  background: white
+  border: 3px solid #e0e0e0
+  border-radius: 10px
+  padding: 10px
+  cursor: pointer
+  transition: all 0.3s
+  position: relative
+  min-height: 100px
+        
+
+.bracket-item:hover:not(.winner):not(.loser) 
+  transform: scale(1.05)
+  border-color: #667eea
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3)
+        
+
+.bracket-item.clickable 
+  cursor: pointer
+        
+
+.bracket-item.winner 
+  border-color: #4CAF50
+  background: #e8f5e9
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3)
+        
+
+.bracket-item.loser 
+  opacity: 0.4
+  border-color: #ccc
+        
+
+.bracket-item.pending 
+  border-color: #FFA726
+  background: #fff3e0
+        
+
+.bracket-item img 
+  width: 100%
+  height: 120px
+  object-fit: cover
+  border-radius: 5px
+  margin-bottom: 8px
+        
+
+.bracket-item-name 
+  text-align: center
+  font-size: 0.85em
+  font-weight: bold
+  color: #333
+        
+
+.bracket-item.empty 
+  background: #f5f5f5
+  border-style: dashed
+  display: flex
+  align-items: center
+  justify-content: center
+  color: #999
+        
+
+/* Winner Display */
+.winner-display 
+  text-align: center
+  padding: 40px
+
+
+.winner-display h2 
+  font-size: 2.5em
+  color: #667eea
+  margin-bottom: 30px
+
+
+.winner-card 
+  max-width: 500px
+  margin: 0 auto
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  border-radius: 20px
+  padding: 30px
+  color: white
+
+
+.winner-card img 
+  width: 100%
+  height: 400px
+  object-fit: cover
+  border-radius: 15px
+  margin-bottom: 20px
+  border: 5px solid white
+
+
+.winner-card h3 
+  font-size: 2em
+  margin-bottom: 20px
+
+
+
+/* Winner Column Styling */
+.winner-column 
+  display: flex
+  align-items: center
+        
+
+.winner-column .bracket-item 
+  min-height: 200px
+  border-width: 4px
+        
+
+.winner-column .bracket-item img 
+  height: 180px
+        
+
+.winner-column .bracket-item.winner 
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%)
+  color: white
+  border-color: #FFD700
+  box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5)
+        
+
+.winner-column .bracket-item-name 
+  font-size: 1.2em
+  color: white
+        
+
+.winner-badge 
+  text-align: center
+  font-size: 2em
+  margin-bottom: 10px
+
+/* Connector Lines */
+.match-pair::after 
+  content: ''
+  position: absolute
+  right: -30px
+  top: 50%
+  width: 30px
+  height: 2px
+  background: #667eea
+  transform: translateY(-50%)
+        
+
+.bracket-column:last-child .match-pair::after 
+  display: none
+        
+
+.reset-btn 
+  display: block
+  margin: 30px auto 0
+  padding: 15px 40px
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  color: white
+  border: none
+  border-radius: 10px
+  font-size: 1.1em
+  font-weight: bold
+  cursor: pointer
+  transition: all 0.3s
+        
+
+.reset-btn:hover 
+  transform: translateY(-2px)
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4)
+        
+
+.hidden 
+  display: none !important
+        
+
+input[type="file"] 
+  display: none
+        
+
+.current-match-indicator 
+  text-align: center
+  margin-bottom: 20px
+  padding: 15px
+  background: #fff3e0
+  border-radius: 10px
+  border: 2px solid #FFA726
+  font-size: 1.1em
+  color: #F57C00
+  font-weight: bold
+        
+@media (max-width: 1200px) 
+  .bracket 
+      gap: 40px
+            
+  .bracket-column 
+      min-width: 160px
+
+
+.container 
+  max-width: 1800px
+  margin: 0 auto
+  background: white
+  border-radius: 20px
+  padding: 30px
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3)
+
+.round
+  min-width: 200px
+
+.match
+  border: 1px solid #ddd
+  padding: 0.5rem
+  margin-bottom: 1rem
+  background: #fafafa
+  border-radius: 8px
+
+.player
+  display:flex
+  flex-direction:column
+  align-items:center
+  padding: 0.25rem
+
+.player-image
+  width: 80px
+  height: 80px
+  object-fit:cover
+  border-radius: 6px
+
+.player-name
+  margin-top: 0.4rem
+
+.vs
+  text-align:center
+  font-weight:bold
+  margin: 0.4rem 0
+
+.winner
+  outline: 3px solid gold
+
+.bracket-controls
+  margin-top: 1rem
+  display:flex
+  gap: 8px
+
+
+nav ul 
+  //list-style: none
+  //padding: 3px 5px
+  //background: #fff
+  border: 1px solid #ddd
+  padding: 0.5rem
+  gap: 1rem
+  background: #fafafa
+  border-radius: 8px
+  justify-content: center
+  display: flex
+
+  a 
+    color: #111
+    text-decoration: none
+
+    &:hover 
+      text-decoration: underline
+
+  li 
+    display: inline
+    margin-left: 2rem
+
+footer 
+  border: 1px solid #ddd
+  background: #f2f2f2
+  padding: 0.5rem
+  font-size: .7em
+  text-align: center
+  position: static
+  display: flex
+  bottom: 2em
+  border-radius: 8px
+  gap: 1rem
+  margin-top: 60rem
+
+
+//#bracket 
+//  height: 800px
