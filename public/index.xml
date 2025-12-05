@@ -6,8 +6,15 @@
     <description>Recent content in 🏆 Tournament for Anime Pics on Turnier-for-Anime-Pics</description>
     <generator>Hugo</generator>
     <language>de-de</language>
-    <lastBuildDate>Thu, 04 Dec 2025 01:32:57 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 05 Dec 2025 02:25:50 +0100</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github</title>
+      <link>http://localhost:1313/github/</link>
+      <pubDate>Fri, 05 Dec 2025 02:25:50 +0100</pubDate>
+      <guid>http://localhost:1313/github/</guid>
+      <description>&lt;h1 id=&#34;github-page&#34;&gt;Github page&lt;/h1&gt;&#xA;&lt;h1 id=&#34;alt-text&#34;&gt;&lt;a href=&#34;https://github.com/Chris2000SP/tournament-for-anime-pics&#34;&gt;&lt;img src=&#34;https://upload.wikimedia.org/wikipedia/commons/9/95/Font_Awesome_5_brands_github.svg&#34; alt=&#34;Alt-Text&#34;&gt;&lt;/a&gt;&lt;/h1&gt;</description>
+    </item>
     <item>
       <title>🏆 Tournament for Anime Pics</title>
       <link>http://localhost:1313/turnier/</link>

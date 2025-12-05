@@ -17,5 +17,5 @@ Diese Webseite ist deine Bühne.
 Für Anime.
 Für Turniere.
 Für alles, was nach Wettbewerb und Leidenschaft schreit.
- 
-[Turnier](/turnier/)
+
+# [🏆](/turnier/)
