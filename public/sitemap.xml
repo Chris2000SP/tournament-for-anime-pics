@@ -2,19 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/github/</loc>
-    <lastmod>2025-12-05T02:25:50+01:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/turnier/</loc>
+    <loc>https://animeturnier.chris2000sp.com/turnier/</loc>
     <lastmod>2025-12-04T01:32:57+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://animeturnier.chris2000sp.com/</loc>
     <lastmod>2025-11-23T00:28:14+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://animeturnier.chris2000sp.com/about/</loc>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://animeturnier.chris2000sp.com/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://animeturnier.chris2000sp.com/tags/</loc>
   </url>
 </urlset>
