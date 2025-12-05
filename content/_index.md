@@ -18,4 +18,4 @@ Für Anime.
 Für Turniere.
 Für alles, was nach Wettbewerb und Leidenschaft schreit.
 
-# [🏆](/turnier/)
+# >> [🏆](/turnier/) <<
