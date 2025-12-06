@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>🏆 Bild Tournament</h1>
+
+    <!-- Setup Phase -->
+    <div class="setup-phase" id="setupPhase">
+        <div class="phase-indicator">
+            📸 Setup Phase - Bilder hochladen & anordnen
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <h2>📁 Bilder hochladen</h2>
+            <p>Klicken oder Bilder hierher ziehen</p>
+            <input type="file" id="fileInput" multiple accept="image/*">
+        </div>
+
+        <div class="participants-grid" id="participantsGrid"></div>
+
+        <button class="start-btn" id="startBtn" disabled>
+            Tournament starten
+        </button>
+    </div>
+
+    <!-- Tournament Phase -->
+    <div class="tournament-phase" id="tournamentPhase">
+        <div class="phase-indicator">
+            ⚔️ Tournament läuft - Sieh dir den Bracket-Baum an
+        </div>
+
+        <div class="bracket-container">
+            <div class="bracket" id="bracket"></div>
+        </div>
+
+        <button class="reset-btn" id="resetBtn">Neues Tournament starten</button>
+    </div>
+
+    <!-- Match Overlay -->
+    <div class="match-overlay" id="matchOverlay">
+        <div class="match-window">
+            <div class="match-header">
+                <div class="match-round-title" id="matchRoundTitle"></div>
+                <div class="match-info" id="matchInfo"></div>
+            </div>
+            <div class="match-content" id="matchContent"></div>
+        </div>
+    </div>
+</div>
+<script src="/js/bracket-v0.5.0-beta.js"></script>
