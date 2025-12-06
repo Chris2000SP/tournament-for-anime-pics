@@ -1,19 +1,83 @@
+// Variablen
+$primary-color: #667eea
+$secondary-color: #764ba2
+$success-color: #4CAF50
+$success-light: #45a049
+$danger-color: #ff6b6b
+$danger-hover: #ff5252
+$warning-color: #FFA726
+$warning-light: #fff3e0
+$warning-dark: #F57C00
+
+$bg-light: #f8f9ff
+$bg-lighter: #f0f4ff
+$bg-gradient: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%)
+
+$border-color: #e0e0e0
+$border-dashed: #ddd
+$text-dark: #333
+$text-medium: #666
+$text-light: #999
+
+$radius-small: 5px
+$radius-medium: 8px
+$radius-large: 10px
+$radius-xlarge: 15px
+$radius-xxlarge: 20px
+
+$transition-default: all 0.3s
+$transition-fast: all 0.2s
+
+$shadow-light: 0 2px 8px rgba(0,0,0,0.1)
+$shadow-medium: 0 10px 25px rgba(0,0,0,0.15)
+$shadow-heavy: 0 20px 60px rgba(0,0,0,0.3)
+$shadow-primary: 0 10px 25px rgba(102, 126, 234, 0.4)
+
+// Mixins
+@mixin flex-center
+  display: flex
+  align-items: center
+  justify-content: center
+
+@mixin card-hover
+  &:hover
+    transform: translateY(-5px)
+    box-shadow: $shadow-medium
+    border-color: $primary-color
+
+@mixin button-base
+  border: none
+  border-radius: $radius-large
+  cursor: pointer
+  font-weight: bold
+  transition: $transition-default
+
+@mixin gradient-bg
+  background: $bg-gradient
+
+@mixin img-cover
+  width: 100%
+  object-fit: cover
+  border-radius: $radius-small
+
+// Reset
 *
   margin: 0
   padding: 0
   box-sizing: border-box
 
+// Base Styles
 body 
   width: 1500px
   margin: 0 auto
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  @include gradient-bg
   min-height: 100vh
   padding: 20px
 
 h1 
   text-align: center
-  color: #667eea
+  color: $primary-color
   margin-bottom: 30px
   font-size: 2.5em
 
@@ -22,69 +86,78 @@ hr
   background: linear-gradient(to right, transparent, #888, transparent)
   margin: 2em 0
 
+input[type="file"] 
+  display: none
 
+.hidden 
+  display: none !important
+
+.container 
+  max-width: 1800px
+  margin: 0 auto
+  background: white
+  border-radius: $radius-xxlarge
+  padding: 30px
+  box-shadow: $shadow-heavy
+
+// Phase Indicator
 .phase-indicator 
   text-align: center
   margin-bottom: 20px
   padding: 15px
-  background: #f0f4ff
-  border-radius: 10px
+  background: $bg-lighter
+  border-radius: $radius-large
   font-size: 1.2em
   font-weight: bold
-  color: #667eea
+  color: $primary-color
 
-/* Setup Phase */
+// Setup Phase
 .setup-phase 
   display: block
 
 .upload-area 
-  border: 3px dashed #667eea
-  border-radius: 15px
+  border: 3px dashed $primary-color
+  border-radius: $radius-xlarge
   padding: 40px
   text-align: center
   margin-bottom: 30px
-  background: #f8f9ff
+  background: $bg-light
   cursor: pointer
-  transition: all 0.3s
+  transition: $transition-default
 
-.upload-area:hover 
-  background: #f0f4ff
-  border-color: #764ba2
+  &:hover 
+    background: $bg-lighter
+    border-color: $secondary-color
 
-.upload-area.dragover 
-  background: #e8ecff
-  border-color: #764ba2
-  transform: scale(1.02)
+  &.dragover 
+    background: #e8ecff
+    border-color: $secondary-color
+    transform: scale(1.02)
 
+// Participants Section
 .participants-header 
   display: flex
-  justify-content: space-between
+  justify-content: space-evenly
   align-items: center
   margin-bottom: 20px
   padding: 15px
-  background: #f8f9ff
-  border-radius: 10px
+  background: $bg-light
+  border-radius: $radius-large
 
 .participants-count 
   font-size: 1.2em
   font-weight: bold
-  color: #667eea
-
+  color: $primary-color
 
 .clear-all-btn 
+  @include button-base
   padding: 10px 20px
-  background: #ff6b6b
+  background: $danger-color
   color: white
-  border: none
-  border-radius: 8px
-  cursor: pointer
-  font-weight: bold
-  transition: all 0.3s
 
-
-.clear-all-btn:hover 
-  background: #ff5252
-  transform: translateY(-2px)
+  &:hover 
+    background: $danger-hover
+    transform: translateY(-2px)
 
 .participants-grid 
   display: grid
@@ -95,44 +168,32 @@ hr
   max-height: 600px
   overflow-y: auto
   padding: 10px
-  background: #f8f9ff
-  border-radius: 10px
-
+  background: $bg-light
+  border-radius: $radius-large
 
 .participant-card 
   background: white
-  border: 2px solid #e0e0e0
-  border-radius: 10px
+  border: 2px solid $border-color
+  border-radius: $radius-large
   padding: 10px
   cursor: move
-  transition: all 0.3s
+  transition: $transition-default
   position: relative
-        
+  @include card-hover
 
-.participant-card:hover 
-  transform: translateY(-5px)
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15)
-  border-color: #667eea
-        
+  &.dragging 
+    opacity: 0.5
 
-.participant-card.dragging 
-  opacity: 0.5
-        
-
-.participant-card img 
-  width: 100%
-  height: 150px
-  object-fit: cover
-  border-radius: 5px
-  margin-bottom: 8px
-        
+  img 
+    @include img-cover
+    height: 150px
+    margin-bottom: 8px
 
 .participant-name 
   text-align: center
   font-size: 0.9em
-  color: #333
+  color: $text-dark
   word-break: break-word
-        
 
 .remove-btn 
   position: absolute
@@ -146,44 +207,34 @@ hr
   border-radius: 50%
   cursor: pointer
   font-size: 16px
-  display: flex
-  align-items: center
-  justify-content: center
-  transition: all 0.2s
+  @include flex-center
+  transition: $transition-fast
   z-index: 10
-        
 
-.remove-btn:hover 
-  background: rgb(255, 59, 48)
-  transform: scale(1.1)
-        
+  &:hover 
+    background: rgb(255, 59, 48)
+    transform: scale(1.1)
 
 .start-btn 
+  @include button-base
   display: block
   width: 100%
   max-width: 400px
   margin: 0 auto
   padding: 20px
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
+  @include gradient-bg
   color: white
-  border: none
-  border-radius: 10px
   font-size: 1.3em
-  font-weight: bold
-  cursor: pointer
-  transition: all 0.3s
-        
 
-.start-btn:hover:not(:disabled) 
-  transform: translateY(-2px)
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4)
-        
+  &:hover:not(:disabled) 
+    transform: translateY(-2px)
+    box-shadow: $shadow-primary
 
-.start-btn:disabled 
-  opacity: 0.5
-  cursor: not-allowed
+  &:disabled 
+    opacity: 0.5
+    cursor: not-allowed
 
-/* Tournament Phase */
+// Tournament Phase
 .tournament-phase 
   display: none
 
@@ -192,103 +243,111 @@ hr
   justify-content: space-around
   margin-bottom: 30px
   padding: 20px
-  background: #f0f4ff
-  border-radius: 10px
+  background: $bg-lighter
+  border-radius: $radius-large
   flex-wrap: wrap
   gap: 15px
-        
 
 .progress-stat 
   text-align: center
-        
 
-.progress-stat-value 
-  font-size: 2em
+  &-value 
+    font-size: 2em
+    font-weight: bold
+    color: $primary-color
+
+  &-label 
+    font-size: 0.9em
+    color: $text-medium
+    margin-top: 5px
+
+.current-match-indicator 
+  text-align: center
+  margin-bottom: 20px
+  padding: 15px
+  background: $warning-light
+  border-radius: $radius-large
+  border: 2px solid $warning-color
+  font-size: 1.1em
+  color: $warning-dark
   font-weight: bold
-  color: #667eea
-        
 
-.progress-stat-label 
-  font-size: 0.9em
-  color: #666
-  margin-top: 5px
-
-
+// Match Container
 .match-container 
   max-width: 900px
   margin: 0 auto
   padding: 20px
 
 .round-title 
-    text-align: center
-    font-size: 1.8em
-    color: #667eea
-    margin-bottom: 30px
-    font-weight: bold
-
+  text-align: center
+  font-size: 1.8em
+  color: $primary-color
+  margin-bottom: 30px
+  font-weight: bold
 
 .match 
-    display: flex
-    gap: 20px
-    justify-content: center
-    margin-bottom: 40px
-        
+  display: flex
+  gap: 20px
+  justify-content: center
+  margin-bottom: 40px
+  border: 1px solid $border-dashed
+  padding: 0.5rem
+  background: #fafafa
+  border-radius: $radius-medium
 
 .competitor 
-    flex: 1
-    max-width: 400px
-    background: white
-    border: 3px solid #e0e0e0
-    border-radius: 15px
-    padding: 20px
-    cursor: pointer
-    transition: all 0.3s
-    text-align: center
+  flex: 1
+  max-width: 400px
+  background: white
+  border: 3px solid $border-color
+  border-radius: $radius-xlarge
+  padding: 20px
+  cursor: pointer
+  transition: $transition-default
+  text-align: center
 
-
-.competitor:hover 
+  &:hover 
     transform: scale(1.05)
-    border-color: #667eea
+    border-color: $primary-color
     box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3)
 
-
-.competitor img 
-    width: 100%
+  img 
+    @include img-cover
     height: 300px
-    object-fit: cover
-    border-radius: 10px
+    border-radius: $radius-large
     margin-bottom: 15px
- 
 
-.competitor-name 
+  &-name 
     font-size: 1.2em
     font-weight: bold
-    color: #333
-        
+    color: $text-dark
 
 .vs-divider 
-    display: flex
-    align-items: center
-    justify-content: center
-    font-size: 2em
-    font-weight: bold
-    color: #764ba2
+  @include flex-center
+  font-size: 2em
+  font-weight: bold
+  color: $secondary-color
 
+.vs
+  text-align: center
+  font-weight: bold
+  margin: 0.4rem 0
 
-
+// Bracket System
 .bracket-container 
   overflow-x: auto
   padding: 40px 20px
-  background: #f8f9ff
-  border-radius: 15px
-        
+  background: $bg-light
+  border-radius: $radius-xlarge
 
 .bracket 
   display: flex
   justify-content: center
   gap: 60px
   min-width: fit-content
-        
+
+  @media (max-width: 1200px)
+    gap: 40px
 
 .bracket-column 
   display: flex
@@ -296,17 +355,27 @@ hr
   justify-content: space-around
   min-width: 200px
 
-.round-header 
-  text-align: center
-  font-size: 1.2em
-  font-weight: bold
-  color: #667eea
-  margin-bottom: 20px
-  padding: 10px
-  background: white
-  border-radius: 8px
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1)
-        
+  @media (max-width: 1200px)
+    min-width: 160px
+
+  &:last-child .match-pair::after 
+    display: none
+
+.round 
+  min-width: 200px
+
+  &-header 
+    text-align: center
+    font-size: 1.2em
+    font-weight: bold
+    color: $primary-color
+    margin-bottom: 20px
+    padding: 10px
+    background: white
+    border-radius: $radius-medium
+    box-shadow: $shadow-light
+    position: absolute
+    top: 336px
 
 .match-pair 
   display: flex
@@ -314,255 +383,165 @@ hr
   gap: 10px
   margin: 20px 0
   position: relative
-        
+
+  &::after 
+    content: ''
+    position: absolute
+    right: -30px
+    top: 50%
+    width: 30px
+    height: 2px
+    background: $primary-color
+    transform: translateY(-50%)
 
 .bracket-item 
   background: white
-  border: 3px solid #e0e0e0
-  border-radius: 10px
+  border: 3px solid $border-color
+  border-radius: $radius-large
   padding: 10px
   cursor: pointer
-  transition: all 0.3s
+  transition: $transition-default
   position: relative
   min-height: 100px
-        
 
-.bracket-item:hover:not(.winner):not(.loser) 
-  transform: scale(1.05)
-  border-color: #667eea
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3)
-        
+  &:hover:not(.winner):not(.loser) 
+    transform: scale(1.05)
+    border-color: $primary-color
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3)
 
-.bracket-item.clickable 
-  cursor: pointer
-        
+  &.clickable 
+    cursor: pointer
 
-.bracket-item.winner 
-  border-color: #4CAF50
-  background: #e8f5e9
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3)
-        
+  &.winner 
+    border-color: $success-color
+    background: #e8f5e9
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3)
 
-.bracket-item.loser 
-  opacity: 0.4
-  border-color: #ccc
-        
+  &.loser 
+    opacity: 0.4
+    border-color: #ccc
 
-.bracket-item.pending 
-  border-color: #FFA726
-  background: #fff3e0
-        
+  &.pending 
+    border-color: $warning-color
+    background: $warning-light
 
-.bracket-item img 
-  width: 100%
-  height: 120px
-  object-fit: cover
-  border-radius: 5px
-  margin-bottom: 8px
-        
+  &.empty 
+    background: #f5f5f5
+    border-style: dashed
+    @include flex-center
+    color: $text-light
 
-.bracket-item-name 
-  text-align: center
-  font-size: 0.85em
-  font-weight: bold
-  color: #333
-        
+  img 
+    @include img-cover
+    height: 120px
+    margin-bottom: 8px
 
-.bracket-item.empty 
-  background: #f5f5f5
-  border-style: dashed
-  display: flex
-  align-items: center
-  justify-content: center
-  color: #999
-        
+  &-name 
+    text-align: center
+    font-size: 0.85em
+    font-weight: bold
+    color: $text-dark
 
-/* Winner Display */
-.winner-display 
-  text-align: center
-  padding: 40px
-
-
-.winner-display h2 
-  font-size: 2.5em
-  color: #667eea
-  margin-bottom: 30px
-
-
-.winner-card 
-  max-width: 500px
-  margin: 0 auto
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
-  border-radius: 20px
-  padding: 30px
-  color: white
-
-
-.winner-card img 
-  width: 100%
-  height: 400px
-  object-fit: cover
-  border-radius: 15px
-  margin-bottom: 20px
-  border: 5px solid white
-
-
-.winner-card h3 
-  font-size: 2em
-  margin-bottom: 20px
-
-
-
-/* Winner Column Styling */
+// Winner Column
 .winner-column 
-  display: flex
-  align-items: center
-        
+  @include flex-center
 
-.winner-column .bracket-item 
-  min-height: 200px
-  border-width: 4px
-        
+  .bracket-item 
+    min-height: 200px
+    border-width: 4px
 
-.winner-column .bracket-item img 
-  height: 180px
-        
+    img 
+      height: 180px
 
-.winner-column .bracket-item.winner 
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%)
-  color: white
-  border-color: #FFD700
-  box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5)
-        
+    &.winner 
+      background: linear-gradient(135deg, $success-color 0%, $success-light 100%)
+      color: white
+      border-color: #FFD700
+      box-shadow: 0 10px 40px rgba(255, 215, 0, 0.5)
 
-.winner-column .bracket-item-name 
-  font-size: 1.2em
-  color: white
-        
+    &-name 
+      font-size: 1.2em
+      color: white
 
 .winner-badge 
   text-align: center
   font-size: 2em
   margin-bottom: 10px
 
-/* Connector Lines */
-.match-pair::after 
-  content: ''
-  position: absolute
-  right: -30px
-  top: 50%
-  width: 30px
-  height: 2px
-  background: #667eea
-  transform: translateY(-50%)
-        
-
-.bracket-column:last-child .match-pair::after 
-  display: none
-        
-
-.reset-btn 
-  display: block
-  margin: 30px auto 0
-  padding: 15px 40px
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)
-  color: white
-  border: none
-  border-radius: 10px
-  font-size: 1.1em
-  font-weight: bold
-  cursor: pointer
-  transition: all 0.3s
-        
-
-.reset-btn:hover 
-  transform: translateY(-2px)
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4)
-        
-
-.hidden 
-  display: none !important
-        
-
-input[type="file"] 
-  display: none
-        
-
-.current-match-indicator 
+// Winner Display
+.winner-display 
   text-align: center
-  margin-bottom: 20px
-  padding: 15px
-  background: #fff3e0
-  border-radius: 10px
-  border: 2px solid #FFA726
-  font-size: 1.1em
-  color: #F57C00
-  font-weight: bold
-        
-@media (max-width: 1200px) 
-  .bracket 
-      gap: 40px
-            
-  .bracket-column 
-      min-width: 160px
+  padding: 40px
 
+  h2 
+    font-size: 2.5em
+    color: $primary-color
+    margin-bottom: 30px
 
-.container 
-  max-width: 1800px
+.winner-card 
+  max-width: 500px
   margin: 0 auto
-  background: white
-  border-radius: 20px
+  @include gradient-bg
+  border-radius: $radius-xxlarge
   padding: 30px
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3)
+  color: white
 
-.round
-  min-width: 200px
+  img 
+    @include img-cover
+    height: 400px
+    border-radius: $radius-xlarge
+    margin-bottom: 20px
+    border: 5px solid white
 
-.match
-  border: 1px solid #ddd
-  padding: 0.5rem
-  margin-bottom: 1rem
-  background: #fafafa
-  border-radius: 8px
+  h3 
+    font-size: 2em
+    margin-bottom: 20px
 
+// Player Components
 .player
-  display:flex
-  flex-direction:column
-  align-items:center
+  display: flex
+  flex-direction: column
+  align-items: center
   padding: 0.25rem
 
-.player-image
-  width: 80px
-  height: 80px
-  object-fit:cover
-  border-radius: 6px
+  &-image
+    width: 80px
+    height: 80px
+    object-fit: cover
+    border-radius: 6px
 
-.player-name
-  margin-top: 0.4rem
-
-.vs
-  text-align:center
-  font-weight:bold
-  margin: 0.4rem 0
+  &-name
+    margin-top: 0.4rem
 
 .winner
   outline: 3px solid gold
 
+// Controls
 .bracket-controls
   margin-top: 1rem
-  display:flex
+  display: flex
   gap: 8px
 
+.reset-btn 
+  @include button-base
+  display: block
+  margin: 30px auto 0
+  padding: 15px 40px
+  @include gradient-bg
+  color: white
+  font-size: 1.1em
 
+  &:hover 
+    transform: translateY(-2px)
+    box-shadow: $shadow-primary
+
+// Navigation
 nav ul 
-  //list-style: none
-  //padding: 3px 5px
-  //background: #fff
-  border: 1px solid #ddd
+  border: 1px solid $border-dashed
   padding: 0.5rem
   gap: 1rem
   background: #fafafa
-  border-radius: 8px
+  border-radius: $radius-medium
   justify-content: center
   display: flex
 
@@ -577,8 +556,9 @@ nav ul
     display: inline
     margin-left: 2rem
 
+// Footer
 footer 
-  border: 1px solid #ddd
+  border: 1px solid $border-dashed
   background: #f2f2f2
   padding: 0.5rem
   font-size: .7em
@@ -586,10 +566,6 @@ footer
   position: static
   display: flex
   bottom: 2em
-  border-radius: 8px
+  border-radius: $radius-medium
   gap: 1rem
   margin-top: 60rem
-
-
-//#bracket 
-//  height: 800px
