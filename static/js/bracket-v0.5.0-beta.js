@@ -250,9 +250,9 @@ function getRoundName(round, totalRounds) {
     const matchesInRound = Math.pow(2, totalRounds - round - 1);
     
     if (round === totalRounds - 1) return '🏆 Gewinner';
-    if (matchesInRound === 1) return 'Finale';
-    if (matchesInRound === 2) return 'Halbfinale';
-    if (matchesInRound === 4) return 'Viertelfinale';
+    if (matchesInRound === 2) return 'Finale';
+    if (matchesInRound === 4) return 'Halbfinale';
+    if (matchesInRound === 8) return 'Viertelfinale';
     return `Runde ${round + 1}`;
 }
 
