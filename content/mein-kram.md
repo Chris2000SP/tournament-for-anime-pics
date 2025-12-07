@@ -6,9 +6,9 @@ title = 'Chris Kram'
 # Chris Links
 ## Inhaltsverzeichnis
 {.style-font-all-pages-h}
-- [Anime auf Tidal](#Tidal)
-  - [Doom 2016 Tidal](#Doom-2016-Album-von-Mick-Gordon)
-- [Anisearch](#Anisearch)
+- [Anime auf Tidal](#tidal)
+  - [Doom 2016 Tidal](#doom-2016-album-von-mick-gordon)
+- [Anisearch](#anisearch)
 {.tabelle-kram}
 
 ---

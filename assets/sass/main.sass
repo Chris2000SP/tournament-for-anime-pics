@@ -12,6 +12,7 @@ $warning-dark: #F57C00
 $gold-color: #FFD700
 
 $text-color-pagewide: #fff266
+$text-color-pagewide-p: white
 
 $bg-light: #f8f9ff
 $bg-lighter: #f0f4ff
@@ -117,13 +118,18 @@ table
 
 p
   &.style-font-all-pages
-    color: $text-color-pagewide
-    //-webkit-text-stroke: $rand-dicke $farbe-rand
-    //text-decoration: none
+    color: $text-color-pagewide-p
+    -webkit-text-stroke: $rand-dicke $farbe-rand
+    text-decoration: none
     font-weight: bold
     font-size: 1.4em
     width: 75%
     margin: 0 auto
+
+h1
+  &#-tournament-for-anime-pics
+    -webkit-text-stroke: $rand-dicke $farbe-rand
+    text-decoration: none
 
 h2, h3, h4
   &.style-font-all-pages-h
@@ -904,6 +910,15 @@ footer
 
   hr
     margin: 1em 0
+  p
+    &.style-font-all-pages
+      color: $text-color-pagewide
+      //-webkit-text-stroke: $rand-dicke $farbe-rand
+      //text-decoration: none
+      font-weight: bold
+      font-size: 1.2em
+      width: 97%
+      margin: 0 auto
 
   // Phase Indicator
   .phase-indicator
