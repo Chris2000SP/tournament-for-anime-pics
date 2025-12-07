@@ -11,6 +11,8 @@ $warning-light: #fff3e0
 $warning-dark: #F57C00
 $gold-color: #FFD700
 
+$text-color-pagewide: #fff266
+
 $bg-light: #f8f9ff
 $bg-lighter: #f0f4ff
 $bg-lightest: #f5f5f5
@@ -26,6 +28,12 @@ $border-dashed: #ddd
 $text-dark: #333
 $text-medium: #666
 $text-light: #999
+
+// for a tag maked extra style colors
+$farbe-text: #66fff0
+$farbe-rand: black
+$rand-dicke: 1px
+$link-font-size: 1.2em
 
 $radius-small: 5px
 $radius-medium: 8px
@@ -87,11 +95,56 @@ body
   min-height: 100vh
   padding: 20px
 
-h1 
+h1
   text-align: center
   color: $primary-color
   margin-bottom: 30px
   font-size: 2.5em
+
+table
+  color: $text-color-pagewide
+  //text-shadow: 2px 2px 0 black, 2px 2px 0 black, 2px 2px 0 black, 2px 2px 0 black
+  font-weight: bold
+  font-size: 1.4em
+  width: 75%
+  margin: 0 auto
+  a
+    color: $farbe-text
+    -webkit-text-stroke: $rand-dicke $farbe-rand
+    text-decoration: none
+    font-weight: bold
+    font-size: $link-font-size
+
+p
+  &.style-font-all-pages
+    color: $text-color-pagewide
+    //-webkit-text-stroke: $rand-dicke $farbe-rand
+    //text-decoration: none
+    font-weight: bold
+    font-size: 1.4em
+    width: 75%
+    margin: 0 auto
+
+h2, h3, h4
+  &.style-font-all-pages-h
+    color: $text-color-pagewide
+    text-shadow: 2px 2px 0 black, 2px 2px 0 black, 2px 2px 0 black, 2px 2px 0 black
+    width: 75%
+    margin: 0 auto
+
+ul
+  width: fit-content
+  margin: 0 auto
+  a
+    color: $farbe-text
+    -webkit-text-stroke: $rand-dicke $farbe-rand
+    text-decoration: none
+    font-weight: bold
+    font-size: $link-font-size
+
+#inhaltsverzeichnis
+  width: fit-content
+  margin: 0 auto
 
 hr
   height: 1px
@@ -136,6 +189,7 @@ input[type="file"]
   background: $bg-light
   cursor: pointer
   transition: $transition-default
+  color: initial
 
   &:hover 
     background: $bg-lighter
@@ -381,7 +435,7 @@ input[type="file"]
     border-radius: $radius-medium
     box-shadow: $shadow-light
     position: absolute
-    top: 336px
+    top: 345px
 
 .match-pair 
   display: flex
@@ -670,11 +724,16 @@ nav ul
   display: flex
 
   a 
-    color: #111
+    //color: #111
+    color: $primary-color
     text-decoration: none
+    font-size: 1.4em
 
     &:hover 
       text-decoration: underline
+      transform: translateY(-5px)
+      box-shadow: $shadow-medium
+      border-color: $primary-color
 
   li 
     display: inline
@@ -723,7 +782,7 @@ footer
 
   h1
     font-size: 1.8em
-    margin-bottom: 20px
+    margin-bottom: 14px
 
   // Upload Area
   .upload-area

@@ -21,8 +21,11 @@
 	</ul>
 </nav>
 	
-	<h1 id="-tournament-for-anime-pics">🏆 Tournament for Anime Pics</h1>
+	<div class="style-font-all-pages-all">
+		<h1 id="-tournament-for-anime-pics">🏆 Tournament for Anime Pics</h1>
 <div class="container">
+    <h1>🏆 Bild Tournament</h1>
+
     
     <div class="setup-phase" id="setupPhase">
         <div class="phase-indicator">
@@ -30,9 +33,14 @@
         </div>
 
         <div class="upload-area" id="uploadArea">
-            <h2>📁 Bilder hochladen</h2>
-            <p>Klicken oder Bilder hierher ziehen</p>
+            <h2 class="uploadArea-font-style">📁 Bilder hochladen</h2>
+            <p class="uploadArea-font-style">Klicken oder Bilder hierher ziehen</p>
             <input type="file" id="fileInput" multiple accept="image/*">
+        </div>
+
+        <div class="participants-header">
+            <div class="participants-count" id="participantsCount">0 Teilnehmer</div>
+            <button class="clear-all-btn" id="randomizeBtn" disabled>🔀 Zufällig anordnen</button>
         </div>
 
         <div class="participants-grid" id="participantsGrid"></div>
@@ -66,8 +74,9 @@
         </div>
     </div>
 </div>
-<script src="/js/bracket-v0.5.0-beta.js"></script>
+<script src="/js/bracket-v0.6.0-alpha.js"></script>
 
+	</div>
 
 	
  <footer>
