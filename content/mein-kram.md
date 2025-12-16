@@ -1,9 +1,10 @@
 +++
 date = '2025-12-06T04:15:08+01:00'
 draft = false
-title = 'Chris Kram'
+title = '🏆 Chris Kram'
 +++
 # Chris Links
+{#chris-links}
 ## Inhaltsverzeichnis
 {.style-font-all-pages-h}
 - [Anime auf Tidal](#tidal)

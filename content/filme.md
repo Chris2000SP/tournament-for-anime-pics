@@ -1,7 +1,7 @@
 +++
 date = '2025-12-10T15:38:37+01:00'
 draft = false
-title = 'Filme'
+title = '🏆 Filme'
 +++
 # Meine Filmempfehlungen und Lieblingsfilme
 ## Wahre begebenheiten
