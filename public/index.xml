@@ -6,38 +6,52 @@
     <description>Recent content in 🏆 Tournament for Anime Pics on Turnier-for-Anime-Pics</description>
     <generator>Hugo</generator>
     <language>de-de</language>
-    <lastBuildDate>Wed, 10 Dec 2025 15:38:37 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 16 Dec 2025 05:12:12 +0100</lastBuildDate>
     <atom:link href="https://animeturnier.chris2000sp.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>🏆 Filme</title>
+      <title>Erster</title>
+      <link>https://animeturnier.chris2000sp.com/posts/erster/</link>
+      <pubDate>Tue, 16 Dec 2025 05:12:12 +0100</pubDate>
+      <guid>https://animeturnier.chris2000sp.com/posts/erster/</guid>
+      <description>&lt;p&gt;Bla blub&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>https://animeturnier.chris2000sp.com/posts/blog-1/</link>
+      <pubDate>Mon, 15 Dec 2025 21:55:17 +0100</pubDate>
+      <guid>https://animeturnier.chris2000sp.com/posts/blog-1/</guid>
+      <description>&lt;h2 id=&#34;bla&#34;&gt;Bla&lt;/h2&gt;</description>
+    </item>
+    <item>
+      <title>Filme</title>
       <link>https://animeturnier.chris2000sp.com/filme/</link>
       <pubDate>Wed, 10 Dec 2025 15:38:37 +0100</pubDate>
       <guid>https://animeturnier.chris2000sp.com/filme/</guid>
       <description>&lt;h1 id=&#34;meine-filmempfehlungen-und-lieblingsfilme&#34;&gt;Meine Filmempfehlungen und Lieblingsfilme&lt;/h1&gt;&#xA;&lt;h2 id=&#34;wahre-begebenheiten&#34; class=&#34;style-font-all-pages-h&#34;&gt;Wahre begebenheiten&lt;/h2&gt;&#xA;&lt;ul class=&#34;tabelle-kram&#34;&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://de.wikipedia.org/wiki/Das_fantastische_Leben_des_Ibelin&#34;&gt;Das fantastische Leben des Ibelin&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://de.wikipedia.org/wiki/Sully_(Film)&#34;&gt;Sully&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://de.wikipedia.org/wiki/Hidden_Figures_%E2%80%93_Unerkannte_Heldinnen&#34;&gt;Hidden Figures&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
-      <title>🏆 Zuletzt Bewertet</title>
+      <title>Zuletzt Bewertet</title>
       <link>https://animeturnier.chris2000sp.com/zuletzt-bewertet/</link>
       <pubDate>Sat, 06 Dec 2025 05:13:06 +0100</pubDate>
       <guid>https://animeturnier.chris2000sp.com/zuletzt-bewertet/</guid>
       <description>&lt;h1&gt;Anisearch.de&lt;/h1&gt;&#xA;&lt;img src=&#34;https://api.anisearch.de/v1/my/anime/138692.webp&#34; height=&#34;450&#34;&gt; &lt;img src=&#34;https://api.anisearch.de/v1/my/topanime/138692.webp&#34; height=&#34;450&#34;&gt;&lt;img src=&#34;https://api.anisearch.de/v1/my/topfemalecharacters/138692.webp&#34; height=&#34;450&#34;&gt;</description>
     </item>
     <item>
-      <title>🏆 Tidal Frame Doom</title>
+      <title>Tidal Frame Doom</title>
       <link>https://animeturnier.chris2000sp.com/tidal-frame-doom/</link>
       <pubDate>Sat, 06 Dec 2025 04:57:21 +0100</pubDate>
       <guid>https://animeturnier.chris2000sp.com/tidal-frame-doom/</guid>
       <description>&lt;iframe src=&#34;https://embed.tidal.com/albums/65498512&#34; width=&#34;500&#34; height=&#34;275&#34; allow=&#34;encrypted-media; fullscreen; clipboard-write https://embed.tidal.com; web-share&#34; sandbox=&#34;allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox&#34; style=&#34;color-scheme: light dark&#34; title=&#34;TIDAL Embed Player&#34; /&gt;</description>
     </item>
     <item>
-      <title>🏆 Tidal Frame</title>
+      <title>Tidal Frame</title>
       <link>https://animeturnier.chris2000sp.com/tidal-frame/</link>
       <pubDate>Sat, 06 Dec 2025 04:46:43 +0100</pubDate>
       <guid>https://animeturnier.chris2000sp.com/tidal-frame/</guid>
       <description>&lt;iframe src=&#34;https://embed.tidal.com/playlists/6b2c7921-fce9-4f7d-b512-7faceff26e93&#34; width=&#34;500&#34; height=&#34;275&#34; allow=&#34;encrypted-media; fullscreen; clipboard-write https://embed.tidal.com; web-share&#34; sandbox=&#34;allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox&#34; style=&#34;color-scheme: light dark&#34; title=&#34;TIDAL Embed Player&#34; /&gt;</description>
     </item>
     <item>
-      <title>🏆 Chris Kram</title>
+      <title>Chris Kram</title>
       <link>https://animeturnier.chris2000sp.com/mein-kram/</link>
       <pubDate>Sat, 06 Dec 2025 04:15:08 +0100</pubDate>
       <guid>https://animeturnier.chris2000sp.com/mein-kram/</guid>

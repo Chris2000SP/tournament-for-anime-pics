@@ -1,0 +1,11 @@
+{{ define "main" }}
+  <h1>Mein Blog</h1>
+  <ul>
+    {{ range .Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time>{{ .Date.Format "2. Januar 2006" }}</time>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

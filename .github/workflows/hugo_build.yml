@@ -1,0 +1,36 @@
+# Dateiname: .github/workflows/hugo_build.yml
+name: Hugo Build
+
+on:
+  # Löst den Workflow bei Pushes auf den 'main'-Branch aus
+  push:
+    branches:
+      - master
+  # Ermöglicht das manuelle Ausführen über die GitHub-Benutzeroberfläche
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # Braucht die vollständige Historie für die Hugo-Funktionen wie lastmod
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          # Ersetzen Sie 0.120.4 durch die von Ihnen verwendete Hugo-Version
+          hugo-version: 'v0.152.2'
+          extended: true
+          # Wenn Sie Hugo Extended verwenden, fügen Sie 'extended: true' hinzu
+
+      - name: Build Hugo Site
+        run: hugo --minify
+
+      # Optional: Hier würden Sie normalerweise die 'deploy'-Schritte hinzufügen (z.B. auf GitHub Pages oder einen Host)
+      - name: Display Build Status
+        run: echo "Hugo Build erfolgreich!"

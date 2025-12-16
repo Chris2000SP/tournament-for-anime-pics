@@ -128,7 +128,7 @@ p
     margin: 0 auto
 
 h1
-  &#-tournament-for-anime-pics, &#chris-links, &#meine-filmempfehlungen-und-lieblingsfilme
+  &#-tournament-for-anime-pics
     -webkit-text-stroke: $rand-dicke $farbe-rand
     text-decoration: none
 
@@ -138,19 +138,17 @@ h2, h3, h4
     text-shadow: 2px 2px 0 black, 2px 2px 0 black, 2px 2px 0 black, 2px 2px 0 black
     width: 75%
     margin: 0 auto
-  &#wahre-begebenheiten
-    width: fit-content
 
 ul
-  margin: 0 auto
-  a
-    color: $farbe-text
-    -webkit-text-stroke: $rand-dicke $farbe-rand
-    text-decoration: none
-    font-weight: bold
-    font-size: $link-font-size
-  &.tabelle-kram
+  &.tabelle-kram-2
     width: fit-content
+    margin: 0 auto
+    a
+      color: $farbe-text
+      -webkit-text-stroke: $rand-dicke $farbe-rand
+      text-decoration: none
+      font-weight: bold
+      font-size: $link-font-size
 
 #inhaltsverzeichnis
   width: fit-content
@@ -166,6 +164,11 @@ input[type="file"]
 
 .hidden 
   display: none !important
+
+#chris-links
+  -webkit-text-stroke: $rand-dicke $farbe-rand
+  text-decoration: none
+  font-weight: bold
 
 .container 
   max-width: 1800px
@@ -727,11 +730,14 @@ input[type="file"]
 nav ul 
   border: 1px solid $border-dashed
   padding: 0.5rem
-  gap: 1rem
+  gap: 4rem
   background: #fafafa
   border-radius: $radius-medium
   justify-content: center
   display: flex
+  -webkit-text-stroke: $rand-dicke $farbe-rand
+  text-decoration: none
+  font-weight: bold
 
   a 
     //color: #111
