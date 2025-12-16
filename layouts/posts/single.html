@@ -1,7 +1,7 @@
 {{ define "main" }}
-	<div class="style-font-all-pages-all">
+	<div class="style-font-all-pages">
 		<h1>{{ .Params.Title }}</h1>
-		<p class="style-font-all-pages-all">{{ .Date.Format "January 2, 2006" }}</p>
+		<p class="style-font-all-pages">{{ .Date.Format "January 2, 2006" }}</p>
 	</div>
-{{ .Content }}
+	<p class="style-font-all-pages">{{ .Content }}</p>
 {{ end }}
