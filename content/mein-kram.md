@@ -19,7 +19,7 @@ title = 'Chris Kram'
 |:----:|:----:|:----:|
 ||||
 | Tidal kann hier geladen werden > |[Tidal-Einbettung](/tidal-frame/)| << **Warnung:** Tidal Läd ihre Scripte und so.|  
-{.tabelle-kram-2}  
+  
 ---
 
 ### Doom 2016 Album von Mick Gordon
@@ -28,7 +28,6 @@ title = 'Chris Kram'
 |:----:|:----:|:----:|
 ||||
 | Tidal kann hier geladen werden > |[Tidal-Einbettung](/tidal-frame-doom/)| << **Warnung:** Tidal Läd ihre Scripte und so.|
-{.tabelle-kram-2}
 
 ---
 ## Anisearch
@@ -36,4 +35,9 @@ title = 'Chris Kram'
 | >> |[Chris Anisearch](https://www.anisearch.de/member/138692,chris2000sp)| << |
 |:----:|:----:|:----:|
 | Hier sind -> | [Chris Anisearch Pics](/zuletzt-bewertet/) | Hinweis: Cookies |
-{.tabelle-kram-2}
+
+## Filme
+{.style-font-all-pages-h}
+|  |[Chris Filmsammlung](/filme/)|  |
+|:----:|:----:|:----:|
+{.tabelle-kram}
