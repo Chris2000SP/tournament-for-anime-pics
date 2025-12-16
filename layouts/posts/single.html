@@ -1,7 +1,11 @@
 {{ define "main" }}
-	<div class="style-font-all-pages">
-		<h1>{{ .Params.Title }}</h1>
-		<p class="style-font-all-pages">{{ .Date.Format "January 2, 2006" }}</p>
-	</div>
-	<p class="style-font-all-pages">{{ .Content }}</p>
+	<article class="blog-post">
+		<div class="style-font-all-pages">
+			<h1>{{ .Params.Title }}</h1>
+			<p class="style-font-all-pages">{{ .Date.Format "January 2, 2006" }}</p>
+		</div>
+		<div class="style-posts-pages-div; container">
+			{{ .Content }}
+		</div>
+	</article>
 {{ end }}
