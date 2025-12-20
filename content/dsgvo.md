@@ -9,7 +9,7 @@ title = 'DSGVO'
 +++
 # Datenschutzerklärung  
 
----
++++
 
 1. Allgemeine Hinweise  
   
@@ -17,7 +17,7 @@ Der Schutz Ihrer persönlichen Daten ist mir wichtig. Diese Webseite kann grunds
   
 Personenbezogene Daten werden nur dann erhoben, wenn dies technisch notwendig ist oder wenn Sie diese freiwillig mitteilen.  
   
----
++++
 
 2. Verantwortlicher  
   
@@ -27,7 +27,7 @@ Verantwortlich für die Datenverarbeitung auf dieser Website:
 {{< name >}}  
 {{< mail >}}  
 
----
++++
 
 3. Erhebung und Speicherung von Daten  
   
@@ -41,7 +41,7 @@ Beim Aufruf dieser Webseite werden durch den Webserver automatisch folgende Date
   
 Diese Daten dienen ausschließlich der technischen Überwachung und Sicherheit des Betriebs der Webseite und werden nicht zur Identifikation Ihrer Person genutzt.  
   
----
++++
 
 4. Verwendung von Cookies / Local Storage  
   
@@ -51,13 +51,13 @@ Es können technische Speichermechanismen des Browsers (z.B. LocalStorage oder C
   
 Diese Daten verbleiben ausschließlich auf Ihrem Endgerät und werden nicht an einen Server übertragen.  
   
----
++++
 
 5. Einbindung von Drittanbietern  
   
 Auf dieser Webseite werden keine externen Analyse- oder Werbedienste (z.B. Google Analytics, Facebook Pixel) verwendet.  
   
----
++++
 
 6. Ihre Rechte  
   
@@ -72,7 +72,7 @@ Sie haben jederzeit das Recht auf:
   
 Hierzu genügt eine formlose E-Mail an die oben genannte Adresse.  
   
----
++++
 
 7. Änderungen  
   

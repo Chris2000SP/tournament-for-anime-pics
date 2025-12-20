@@ -1,15 +1,15 @@
----
-title: "FFXIV Gooning Consent Problem"
-date: 2025-12-16T17:30:54+01:00
-draft: true
-tags: ["posts", "neu"]
-categories: ["Allgemein"]
-layout: "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
-sitemap:
-  changefreq: 'daily'
-  disable: false
-  priority: 0.8
----
++++
+title = "FFXIV Gooning Consent Problem"
+date = 2025-12-16T17:30:54+01:00
+draft = true
+tags = ["posts", "neu"]
+categories = ["Allgemein"]
+layout = "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
+[sitemap] 
+  changefreq = 'daily'
+  disable = false
+  priority = 0.8
++++
 # FFXIV Gooning Consent Problem
 ## Disclaimer/Hinweis
 Zunächst einmal, ich bin Sex-Positiver Gooner und wenn dir das nicht Passt, bitte geh wieder.  

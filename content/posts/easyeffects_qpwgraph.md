@@ -1,15 +1,15 @@
----
-title: "EasyEffects qpwgraph"
-date: 2025-12-17T04:45:18+01:00
-draft: false
-tags: ["posts", "neu", "audio", "linux", "pipewire", "easyeffects", "qpwgraph"]
-categories: ["Linux"]
-layout: "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
-sitemap:
-  changefreq: 'daily'
-  disable: false
-  priority: 0.8
----
++++
+title = "EasyEffects qpwgraph"
+date = 2025-12-17T04:45:18+01:00
+draft = false
+tags = ["posts", "neu", "audio", "linux", "pipewire", "easyeffects", "qpwgraph"]
+categories = ["Linux"]
+layout = "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
+[sitemap] 
+  changefreq = 'daily'
+  disable = false
+  priority = 0.8
++++
 # EasyEffects qpwgraph
 ## EasyEffects
 ### Equalizer

@@ -1,15 +1,15 @@
----
-title: "Meine Hifi Geräte"
-date: 2025-12-17T05:11:41+01:00
-draft: false
-tags: ["posts", "neu"]
-categories: ["Allgemein"]
-layout: "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
-sitemap:
-  changefreq: 'daily'
-  disable: false
-  priority: 0.8
----
++++
+title = "Meine Hifi Geräte"
+date = 2025-12-17T05:11:41+01:00
+draft = false
+tags = ["posts", "neu"]
+categories = ["Allgemein"]
+layout = "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
+[sitemap] 
+  changefreq = 'daily'
+  disable = false
+  priority = 0.8
++++
 # meine HiFi Geräte
 ## Wohnzimmer
 ### Heimkino
