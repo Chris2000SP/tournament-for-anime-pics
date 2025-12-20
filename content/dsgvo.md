@@ -2,6 +2,10 @@
 date = '2025-12-04T03:11:03+01:00'
 draft = true
 title = 'DSGVO'
+[sitemap]
+  changefreq = 'weekly'
+  disable = true
+  priority = 0.1
 +++
 # Datenschutzerklärung  
 

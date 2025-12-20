@@ -2,6 +2,10 @@
 date = '2025-12-10T15:38:37+01:00'
 draft = false
 title = '🏆 Filme'
+[sitemap]
+  changefreq = 'weekly'
+  disable = true
+  priority = 0.1
 +++
 # Meine Filmempfehlungen und Lieblingsfilme
 ## Wahre begebenheiten

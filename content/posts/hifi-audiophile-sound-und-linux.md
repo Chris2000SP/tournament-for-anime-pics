@@ -5,6 +5,10 @@ draft: false
 tags: ["posts", "neu", "linux", "audio", "hifi", "audiophile"]
 categories: ["Audio"]
 layout: "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
+sitemap:
+  changefreq: 'daily'
+  disable: false
+  priority: 0.8
 ---
 # Hifi Audiophile Sound und Linux
 ## Zunächst Linux, weil pipewire mist gemacht hat, etwas gefixt werden.

@@ -5,6 +5,10 @@ draft: false
 tags: ["posts", "neu", "audio", "linux", "pipewire", "easyeffects", "qpwgraph"]
 categories: ["Linux"]
 layout: "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
+sitemap:
+  changefreq: 'daily'
+  disable: false
+  priority: 0.8
 ---
 # EasyEffects qpwgraph
 ## EasyEffects
