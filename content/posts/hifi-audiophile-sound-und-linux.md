@@ -15,7 +15,8 @@ layout = "posts"  # Verweis auf ein Layout (falls du mehrere Layouts hast)
 ### Pipewire Fixen für Audiophile Audio ausgabe:
 Code Blöcke  
 
-```    $ mkdir -p ~/.config/pipewire  
+```    
+$ mkdir -p ~/.config/pipewire  
 $ cp /usr/share/pipewire/pipewire.conf ~/.config/pipewire  
 $ cd ~/.config/pipewire  
 $ nano pipewire.conf  
