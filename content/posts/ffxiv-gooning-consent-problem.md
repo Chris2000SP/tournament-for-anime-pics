@@ -22,3 +22,4 @@ Diese Seite soll noch für Leute benutzbar bleiben, die solche Inhalte nicht seh
 Es gab wohl eine Gooner Szene in der Modding Szene, die ich nicht direkt wargenommen habe in FFXIV.  
 Außer ein Fall wo ich gesehen habe wie 3 Player komische Emotes von sich gegeben haben,  
 was wie Stöhnen geklungen hat und die Charaktere auch Komische Bewegungen machten, die ich nicht zuordnen konnte. Aber die habe ich nicht mehr wieder gesehen.
+[FIXME]
