@@ -13,4 +13,6 @@ title = '🏆 Filme'
  - [Das fantastische Leben des Ibelin](https://de.wikipedia.org/wiki/Das_fantastische_Leben_des_Ibelin)
  - [Sully](https://de.wikipedia.org/wiki/Sully_(Film))
  - [Hidden Figures](https://de.wikipedia.org/wiki/Hidden_Figures_%E2%80%93_Unerkannte_Heldinnen)
+ - [Spottlight (Film)](https://de.wikipedia.org/wiki/Spotlight_(Film))
+ - [BenX](https://de.wikipedia.org/wiki/Ben_X)
 {.tabelle-kram}
