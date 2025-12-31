@@ -1,9 +1,15 @@
 baseURL = 'https://animeturnier.chris2000sp.com/'
 languageCode = 'de-de'
 title = 'Turnier-for-Anime-Pics'
+enableRobotsTXT = true
 [markup]
   [markup.goldmark]
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
         block = true
         title = true
+    [markup.goldmark.renderer]
+      unsafe = true
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5

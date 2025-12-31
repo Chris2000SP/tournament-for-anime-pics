@@ -39,13 +39,20 @@ uploadArea.addEventListener('drop', (e) => {
 
 function handleFiles(e) {
     const files = Array.from(e.target.files);
+
     files.forEach(file => {
         if (file.type.startsWith('image/')) {
+            // Frag den Nutzer nach einem neuen Namen (optional!)
+            const newName = prompt(`Senpai, wie soll deine Datei heißen? (Aktuell: ${file.name})`, file.name);
+
+            // Wenn der Nutzer etwas eingibt, verwende den neuen Namen
+            const finalName = newName !== null ? newName.trim() : file.name;
+
             const reader = new FileReader();
             reader.onload = (event) => {
                 participants.push({
                     id: Date.now() + Math.random(),
-                    name: file.name,
+                    name: finalName, // Hier wird der (geänderte) Name verwendet!
                     image: event.target.result
                 });
                 renderParticipants();
@@ -54,8 +61,29 @@ function handleFiles(e) {
             reader.readAsDataURL(file);
         }
     });
-    fileInput.value = '';
+
+    fileInput.value = ''; // Reset des File-Inputs
 }
+
+//function handleFiles(e) {
+//    const files = Array.from(e.target.files);
+//    files.forEach(file => {
+//        if (file.type.startsWith('image/')) {
+//            const reader = new FileReader();
+//            reader.onload = (event) => {
+//                participants.push({
+//                    id: Date.now() + Math.random(),
+//                    name: file.name,
+//                    image: event.target.result
+//                });
+//                renderParticipants();
+//                updateStartButton();
+//            };
+//            reader.readAsDataURL(file);
+//        }
+//    });
+//    fileInput.value = '';
+//}
 
 function renderParticipants() {
     participantsGrid.innerHTML = '';
@@ -141,14 +169,21 @@ function updateStartButton() {
     // Update Teilnehmerzahl
     participantsCount.textContent = `${count} Teilnehmer`;
     
-    // Update Buttons
-    startBtn.disabled = count < 2;
     randomizeBtn.disabled = count < 2;
-    
-    if (count >= 2) {
-        startBtn.textContent = `Tournament starten (${count} Teilnehmer)`;
-    } else {
-        startBtn.textContent = 'Mindestens 2 Bilder benötigt';
+    startBtn.disabled = count < 2;
+    // Update Buttons
+    for (var i = 1; i <= count; i++) {
+        if (count >= 2 && count == 2**i) {
+            startBtn.textContent = `Tournament starten (${count} Teilnehmer)`;
+            randomizeBtn.disabled = count != 2**i;
+            startBtn.disabled = count != 2**i;
+            break;
+        } else {
+            startBtn.textContent = `Mindestens 2 Bilder benötigt bzw. falsche Teilnehmerzahl \n
+            (${i} Teilnehmer.)`;
+            randomizeBtn.disabled = count != 2**i;
+            startBtn.disabled = count != 2**i;
+        }
     }
 }
 
@@ -198,44 +233,105 @@ function initializeBracket() {
     }
 }
 
+function createBracketItem(match, round, index) {
+    const item = document.createElement('div');
+    item.className = 'bracket-item';
+
+    if (match.winner) {
+        item.classList.add('winner');
+    }
+
+    if (index % 2 === 0) {
+        item.classList.add('top');
+    } else {
+        item.classList.add('bottom');
+    }
+
+    item.innerHTML = `
+        <div class="participant-name">${match.name}</div>
+        <img src="${match.image}" class="participant-image">
+    `;
+
+    return item;
+}
+
 function renderBracket() {
     bracket.innerHTML = '';
-    
+
     const numRounds = bracketData.length;
-    
+
     for (let round = 0; round < numRounds; round++) {
         const column = document.createElement('div');
         column.className = round === numRounds - 1 ? 'bracket-column winner-column' : 'bracket-column';
-        
+
         const header = document.createElement('div');
         header.className = 'round-header';
         header.textContent = getRoundName(round, numRounds);
         column.appendChild(header);
-        
+
         const roundMatches = bracketData[round];
         const matchPairsCount = Math.ceil(roundMatches.length / 2);
-        
+
         for (let i = 0; i < matchPairsCount; i++) {
             const matchPair = document.createElement('div');
             matchPair.className = 'match-pair';
-            
+
             const idx1 = i * 2;
             const idx2 = i * 2 + 1;
-            
+
             if (roundMatches[idx1]) {
                 matchPair.appendChild(createBracketItem(roundMatches[idx1], round, idx1));
             }
-            
+
             if (roundMatches[idx2]) {
                 matchPair.appendChild(createBracketItem(roundMatches[idx2], round, idx2));
             }
-            
+
             column.appendChild(matchPair);
         }
-        
+
         bracket.appendChild(column);
     }
 }
+
+//function renderBracket() {
+//    bracket.innerHTML = '';
+//    
+//    const numRounds = bracketData.length;
+//    
+//    for (let round = 0; round < numRounds; round++) {
+//        const column = document.createElement('div');
+//        column.className = round === numRounds - 1 ? 'bracket-column winner-column' : 'bracket-column';
+//        
+//        const header = document.createElement('div');
+//        header.className = 'round-header';
+//        header.textContent = getRoundName(round, numRounds);
+//        column.appendChild(header);
+//        
+//        const roundMatches = bracketData[round];
+//        const matchPairsCount = Math.ceil(roundMatches.length / 2);
+//        
+//        for (let i = 0; i < matchPairsCount; i++) {
+//            const matchPair = document.createElement('div');
+//            matchPair.className = 'match-pair';
+//            
+//            const idx1 = i * 2;
+//            const idx2 = i * 2 + 1;
+//            
+//            if (roundMatches[idx1]) {
+//                matchPair.appendChild(createBracketItem(roundMatches[idx1], round, idx1));
+//            }
+//            
+//            if (roundMatches[idx2]) {
+//                matchPair.appendChild(createBracketItem(roundMatches[idx2], round, idx2));
+//            }
+//            
+//            column.appendChild(matchPair);
+//        }
+//        
+//        bracket.appendChild(column);
+//    }
+//}
 
 function createBracketItem(data, round, index) {
     const item = document.createElement('div');
@@ -344,7 +440,7 @@ function showMatchOverlay() {
     
     const roundName = getRoundName(round, bracketData.length);
     matchRoundTitle.textContent = roundName;
-    matchInfo.textContent = 'Klicke auf den Gewinner';
+    matchInfo.textContent = 'Klicke auf den Gewinner (Du Streamer)';
     
     matchContent.innerHTML = `
         <div class="match-competitor" onclick="selectWinnerFromOverlay(${round}, ${index1})">
