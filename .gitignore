@@ -12,3 +12,6 @@ static/js/mail.js
 assets/sass/main-old.sass
 assets/sass/main-new.sass
 upload.sh
+public/
+content/
+resources/_gen/
