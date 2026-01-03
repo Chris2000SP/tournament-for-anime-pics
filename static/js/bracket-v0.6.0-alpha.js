@@ -37,16 +37,52 @@ uploadArea.addEventListener('drop', (e) => {
     handleFiles({ target: { files: e.dataTransfer.files } });
 });
 
+//function handleFiles(e) {
+//    const files = Array.from(e.target.files);
+//    files.forEach(file => {
+//        if (file.type.startsWith('image/')) {
+//            // Frag den Nutzer, ob er einen Namen eingeben möchte
+//            const shouldRename = confirm("Senpai, möchtest du deiner Datei einen neuen Namen geben?");
+//            let finalName = file.name;
+//
+//            if (shouldRename) {
+//                const newName = prompt(`Senpai, wie soll deine Datei heißen? (Aktuell: ${file.name})`, file.name);
+//                finalName = newName !== null ? newName.trim() : file.name;
+//            }
+//
+//            const reader = new FileReader();
+//            reader.onload = (event) => {
+//                participants.push({
+//                    id: Date.now() + Math.random(),
+//                    name: finalName,
+//                    image: event.target.result
+//                });
+//                // Renderer-Funktion nur aufrufen, wenn sie existiert
+//                if (typeof renderParticipants === 'function') {
+//                    renderParticipants();
+//                }
+//                if (typeof updateStartButton === 'function') {
+//                    updateStartButton();
+//                }
+//            };
+//            reader.readAsDataURL(file);
+//        }
+//    });
+//    fileInput.value = ''; // Reset des File-Inputs
+//}
+
 function handleFiles(e) {
     const files = Array.from(e.target.files);
 
     files.forEach(file => {
         if (file.type.startsWith('image/')) {
+            const shouldRename = confirm("Senpai, möchtest du deiner Datei einen neuen Namen geben?");
             // Frag den Nutzer nach einem neuen Namen (optional!)
-            const newName = prompt(`Senpai, wie soll deine Datei heißen? (Aktuell: ${file.name})`, file.name);
-
-            // Wenn der Nutzer etwas eingibt, verwende den neuen Namen
-            const finalName = newName !== null ? newName.trim() : file.name;
+            if (shouldRename) {
+                const newName = prompt(`Senpai, wie soll deine Datei heißen? (Aktuell: ${file.name})`, file.name);
+                // Wenn der Nutzer etwas eingibt, verwende den neuen Namen
+                const finalName = newName !== null ? newName.trim() : file.name;
+            }
 
             const reader = new FileReader();
             reader.onload = (event) => {
