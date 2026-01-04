@@ -247,6 +247,7 @@ function renderBracket() {
 
     const numRounds = bracketData.length;
 
+    // Erstelle alle Spalten erst
     for (let round = 0; round < numRounds; round++) {
         const column = document.createElement('div');
         column.className = round === numRounds - 1 ? 'bracket-column winner-column' : 'bracket-column';
@@ -277,77 +278,246 @@ function renderBracket() {
             }
 
             column.appendChild(matchPair);
-
-            // Füge Verbindungen zur nächsten Runde hinzu, wenn nicht die letzte Runde
-            if (round < numRounds - 1) {
-                const nextRoundMatches = bracketData[round + 1];
-                const nextRoundIndex = Math.floor(i / 2);
-
-                if (nextRoundMatches[nextRoundIndex]) {
-                    const connector = document.createElement('div');
-                    connector.className = `match-connector round-${round}-to-${round + 1}`;
-                    matchPair.appendChild(connector);
-                }
-            }
         }
 
         bracket.appendChild(column);
     }
 
-    // Füge Verbindungen zwischen den Runden hinzu
+    // Warte bis das DOM gerendert ist, dann zeichne die Linien
+    setTimeout(() => {
+        drawConnectors();
+    }, 0);
+}
+
+function drawConnectors() {
+    // Entferne alte Linien
+    document.querySelectorAll('.bracket-line').forEach(line => line.remove());
+    
+    const numRounds = bracketData.length;
+    
     for (let round = 0; round < numRounds - 1; round++) {
         const currentColumn = document.querySelector(`.bracket-column[data-round="${round}"]`);
         const nextColumn = document.querySelector(`.bracket-column[data-round="${round + 1}"]`);
-    
-        if (currentColumn && nextColumn) {
-            const currentMatches = currentColumn.querySelectorAll('.match-pair');
-            const nextMatches = nextColumn.querySelectorAll('.match-pair');
-    
-
-            const roundConnectorDiv = document.createElement('div');
-            roundConnectorDiv.className = `round-connector-div`;
-            currentMatches.forEach((match, index) => {
-                const nextMatchIndex = Math.floor(index / 2);
-                if (nextMatches[nextMatchIndex]) {
-                    // Horizontale Linie (obere Hälfte)
-                    const horizontalLine = document.createElement('div');
-                    horizontalLine.className = `round-connector round-${round}-to-${round + 1}`;
-                    currentColumn.appendChild(horizontalLine);
-    
-                    // Positioniere die horizontale Linie
-                    horizontalLine.style.top = `${match.offsetTop + match.offsetHeight / 2}px`;
-                    horizontalLine.style.height = '2px';
-                    horizontalLine.style.left = `${(currentColumn.offsetLeft + currentColumn.offsetWidth)*0.737}px`;
-                    horizontalLine.style.width = `${(nextColumn.offsetLeft - (currentColumn.offsetLeft + currentColumn.offsetWidth))/2}px`;
-    
-                    //if (index < 1) {
-                        // Vertikale Linie (linke Hälfte)
-                        const verticalLineLeft = document.createElement('div');
-                        verticalLineLeft.className = `round-connector round-${round}-to-${round + 1}`;
-                        currentColumn.appendChild(verticalLineLeft);
-    
-                        // Positioniere die vertikale Linie links
-                        verticalLineLeft.style.top = `${match.offsetTop + match.offsetHeight / 2}px`;
-                        verticalLineLeft.style.height = `${((nextColumn.offsetTop + nextMatches[nextMatchIndex].offsetTop + nextMatches[nextMatchIndex].offsetHeight) - (match.offsetTop + match.offsetHeight / 2))*1}px`;
-                        verticalLineLeft.style.left = `${currentColumn.offsetLeft + currentColumn.offsetWidth}px`;
-                        verticalLineLeft.style.width = '2px';
-                    //}
-                    
-                    // Vertikale Linie (rechte Hälfte)
-                    const verticalLineRight = document.createElement('div');
-                    verticalLineRight.className = `round-connector round-${round}-to-${round + 1}`;
-                    currentColumn.appendChild(verticalLineRight);
         
-                    // Positioniere die vertikale Linie rechts
-                    verticalLineRight.style.top = `${nextColumn.offsetTop + nextMatches[nextMatchIndex].offsetTop + nextMatches[nextMatchIndex].offsetHeight / 2}px`;
-                    verticalLineRight.style.height = '2px';
-                    verticalLineRight.style.left = `${((currentColumn.offsetLeft + currentColumn.offsetWidth)*0.737)*1.75}px`;
-                    verticalLineRight.style.width = `${(nextColumn.offsetLeft - (currentColumn.offsetLeft + currentColumn.offsetWidth))/1.85}px`;
-                }
+        if (!currentColumn || !nextColumn) continue;
+        
+        const currentMatchPairs = Array.from(currentColumn.querySelectorAll('.match-pair'));
+        const nextMatchPairs = Array.from(nextColumn.querySelectorAll('.match-pair'));
+        
+        // Für jedes Paar von Match-Pairs (die zu einem nächsten Match führen)
+        for (let i = 0; i < nextMatchPairs.length; i++) {
+            const matchPairIndex1 = i * 2;
+            const matchPairIndex2 = i * 2 + 1;
+            
+            const matchPair1 = currentMatchPairs[matchPairIndex1];
+            const matchPair2 = currentMatchPairs[matchPairIndex2];
+            const nextMatchPair = nextMatchPairs[i];
+            
+            if (!nextMatchPair) continue;
+            
+            // Berechne Positionen
+            const bracketRect = bracket.getBoundingClientRect();
+            const nextMatchRect = nextMatchPair.getBoundingClientRect();
+            const nextMatchCenter = {
+                x: nextMatchRect.left - bracketRect.left,
+                y: nextMatchRect.top - bracketRect.top + nextMatchRect.height / 2
+            };
+            
+            // Horizontale Linien und Sammelpunkt berechnen
+            const lineData = [];
+            
+            if (matchPair1) {
+                const rect1 = matchPair1.getBoundingClientRect();
+                const center1 = {
+                    x: rect1.right - bracketRect.left,
+                    y: rect1.top - bracketRect.top + rect1.height / 2
+                };
+                lineData.push(center1);
+            }
+            
+            if (matchPair2) {
+                const rect2 = matchPair2.getBoundingClientRect();
+                const center2 = {
+                    x: rect2.right - bracketRect.left,
+                    y: rect2.top - bracketRect.top + rect2.height / 2
+                };
+                lineData.push(center2);
+            }
+            
+            if (lineData.length === 0) continue;
+            
+            // Horizontaler Abstand zwischen den Spalten
+            const gap = 30; // Anpassen nach Bedarf
+            const midPointX = lineData[0].x + gap;
+            
+            // Zeichne die Verbindungen
+            lineData.forEach((point) => {
+                // Horizontale Linie vom Match zum Mittelpunkt
+                const hLine = document.createElement('div');
+                hLine.className = 'bracket-line bracket-line-horizontal';
+                hLine.style.position = 'absolute';
+                hLine.style.left = `${point.x}px`;
+                hLine.style.top = `${point.y}px`;
+                hLine.style.width = `${midPointX - point.x}px`;
+                hLine.style.height = '2px';
+                hLine.style.background = getComputedStyle(document.documentElement).getPropertyValue('--primary-color') || '#667eea';
+                bracket.appendChild(hLine);
             });
+            
+            // Vertikale Verbindungslinie
+            if (lineData.length === 2) {
+                const vLine = document.createElement('div');
+                vLine.className = 'bracket-line bracket-line-vertical';
+                vLine.style.position = 'absolute';
+                vLine.style.left = `${midPointX}px`;
+                vLine.style.top = `${Math.min(lineData[0].y, lineData[1].y)}px`;
+                vLine.style.width = '2px';
+                vLine.style.height = `${Math.abs(lineData[1].y - lineData[0].y)}px`;
+                vLine.style.background = getComputedStyle(document.documentElement).getPropertyValue('--primary-color') || '#667eea';
+                bracket.appendChild(vLine);
+            } else if (lineData.length === 1) {
+                // Wenn nur ein Match vorhanden ist (BYE), zeichne direkt zum nächsten
+            }
+            
+            // Horizontale Linie zum nächsten Match
+            const finalHLine = document.createElement('div');
+            finalHLine.className = 'bracket-line bracket-line-horizontal';
+            finalHLine.style.position = 'absolute';
+            finalHLine.style.left = `${midPointX}px`;
+            
+            // Vertikale Position: Mittelpunkt zwischen den zwei Punkten oder einzelner Punkt
+            const yPos = lineData.length === 2 
+                ? (lineData[0].y + lineData[1].y) / 2 
+                : lineData[0].y;
+            
+            finalHLine.style.top = `${yPos}px`;
+            finalHLine.style.width = `${nextMatchCenter.x - midPointX}px`;
+            finalHLine.style.height = '2px';
+            finalHLine.style.background = getComputedStyle(document.documentElement).getPropertyValue('--primary-color') || '#667eea';
+            bracket.appendChild(finalHLine);
+            
+            // Vertikale Linie zum exakten Zielpunkt (falls nötig)
+            if (Math.abs(yPos - nextMatchCenter.y) > 1) {
+                const connectVLine = document.createElement('div');
+                connectVLine.className = 'bracket-line bracket-line-vertical';
+                connectVLine.style.position = 'absolute';
+                connectVLine.style.left = `${nextMatchCenter.x}px`;
+                connectVLine.style.top = `${Math.min(yPos, nextMatchCenter.y)}px`;
+                connectVLine.style.width = '2px';
+                connectVLine.style.height = `${Math.abs(nextMatchCenter.y - yPos)}px`;
+                connectVLine.style.background = getComputedStyle(document.documentElement).getPropertyValue('--primary-color') || '#667eea';
+                bracket.appendChild(connectVLine);
+            }
         }
     }
 }
+
+//function renderBracket() {
+//    bracket.innerHTML = '';
+//
+//    const numRounds = bracketData.length;
+//
+//    for (let round = 0; round < numRounds; round++) {
+//        const column = document.createElement('div');
+//        column.className = round === numRounds - 1 ? 'bracket-column winner-column' : 'bracket-column';
+//        column.dataset.round = round;
+//
+//        const header = document.createElement('div');
+//        header.className = 'round-header';
+//        header.textContent = getRoundName(round, numRounds);
+//        column.appendChild(header);
+//
+//        const roundMatches = bracketData[round];
+//        const matchPairsCount = Math.ceil(roundMatches.length / 2);
+//
+//        for (let i = 0; i < matchPairsCount; i++) {
+//            const matchPair = document.createElement('div');
+//            matchPair.className = 'match-pair';
+//            matchPair.dataset.index = i;
+//
+//            const idx1 = i * 2;
+//            const idx2 = i * 2 + 1;
+//
+//            if (roundMatches[idx1]) {
+//                matchPair.appendChild(createBracketItem(roundMatches[idx1], round, idx1));
+//            }
+//
+//            if (roundMatches[idx2]) {
+//                matchPair.appendChild(createBracketItem(roundMatches[idx2], round, idx2));
+//            }
+//
+//            column.appendChild(matchPair);
+//
+//            // Füge Verbindungen zur nächsten Runde hinzu, wenn nicht die letzte Runde
+//            if (round < numRounds - 1) {
+//                const nextRoundMatches = bracketData[round + 1];
+//                const nextRoundIndex = Math.floor(i / 2);
+//
+//                if (nextRoundMatches[nextRoundIndex]) {
+//                    const connector = document.createElement('div');
+//                    connector.className = `match-connector round-${round}-to-${round + 1}`;
+//                    matchPair.appendChild(connector);
+//                }
+//            }
+//        }
+//
+//        bracket.appendChild(column);
+//    }
+//
+//    // Füge Verbindungen zwischen den Runden hinzu
+//    for (let round = 0; round < numRounds - 1; round++) {
+//        const currentColumn = document.querySelector(`.bracket-column[data-round="${round}"]`);
+//        const nextColumn = document.querySelector(`.bracket-column[data-round="${round + 1}"]`);
+//    
+//        if (currentColumn && nextColumn) {
+//            const currentMatches = currentColumn.querySelectorAll('.match-pair');
+//            const nextMatches = nextColumn.querySelectorAll('.match-pair');
+//    
+//
+//            const roundConnectorDiv = document.createElement('div');
+//            roundConnectorDiv.className = `round-connector-div`;
+//            currentMatches.forEach((match, index) => {
+//                const nextMatchIndex = Math.floor(index / 2);
+//                if (nextMatches[nextMatchIndex]) {
+//                    // Horizontale Linie (obere Hälfte)
+//                    const horizontalLine = document.createElement('div');
+//                    horizontalLine.className = `round-connector round-${round}-to-${round + 1}`;
+//                    currentColumn.appendChild(horizontalLine);
+//    
+//                    // Positioniere die horizontale Linie
+//                    horizontalLine.style.top = `${match.offsetTop + match.offsetHeight / 2}px`;
+//                    horizontalLine.style.height = '2px';
+//                    horizontalLine.style.left = `${(currentColumn.offsetLeft + currentColumn.offsetWidth)*0.737}px`;
+//                    horizontalLine.style.width = `${(nextColumn.offsetLeft - (currentColumn.offsetLeft + currentColumn.offsetWidth))/2}px`;
+//    
+//                    //if (index < 1) {
+//                        // Vertikale Linie (linke Hälfte)
+//                        const verticalLineLeft = document.createElement('div');
+//                        verticalLineLeft.className = `round-connector round-${round}-to-${round + 1}`;
+//                        currentColumn.appendChild(verticalLineLeft);
+//    
+//                        // Positioniere die vertikale Linie links
+//                        verticalLineLeft.style.top = `${match.offsetTop + match.offsetHeight / 2}px`;
+//                        verticalLineLeft.style.height = `${((nextColumn.offsetTop + nextMatches[nextMatchIndex].offsetTop + nextMatches[nextMatchIndex].offsetHeight) - (match.offsetTop + match.offsetHeight / 2))*1}px`;
+//                        verticalLineLeft.style.left = `${currentColumn.offsetLeft + currentColumn.offsetWidth}px`;
+//                        verticalLineLeft.style.width = '2px';
+//                    //}
+//                    
+//                    // Vertikale Linie (rechte Hälfte)
+//                    const verticalLineRight = document.createElement('div');
+//                    verticalLineRight.className = `round-connector round-${round}-to-${round + 1}`;
+//                    currentColumn.appendChild(verticalLineRight);
+//        
+//                    // Positioniere die vertikale Linie rechts
+//                    verticalLineRight.style.top = `${nextColumn.offsetTop + nextMatches[nextMatchIndex].offsetTop + nextMatches[nextMatchIndex].offsetHeight / 2}px`;
+//                    verticalLineRight.style.height = '2px';
+//                    verticalLineRight.style.left = `${((currentColumn.offsetLeft + currentColumn.offsetWidth)*0.737)*1.75}px`;
+//                    verticalLineRight.style.width = `${(nextColumn.offsetLeft - (currentColumn.offsetLeft + currentColumn.offsetWidth))/1.85}px`;
+//                }
+//            });
+//        }
+//    }
+//}
 
 
 //function renderBracket() {
