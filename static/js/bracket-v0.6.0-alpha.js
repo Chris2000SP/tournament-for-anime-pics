@@ -159,6 +159,11 @@ function updateStartButton() {
     randomizeBtn.disabled = count < 2;
     startBtn.disabled = count < 2;
     // Update Buttons
+//    if (count >= 2) {
+//        startBtn.textContent = `Tournament starten (${count} Teilnehmer)`;
+//    } else {
+//        startBtn.textContent = `Mindestens 2 Bilder benötigt bzw. falsche Teilnehmerzahl \n (${i} Teilnehmer.)`;
+//    }
     for (var i = 1; i <= count; i++) {
         if (count >= 2 && count == 2**i) {
             startBtn.textContent = `Tournament starten (${count} Teilnehmer)`;
