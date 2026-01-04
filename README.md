@@ -7,4 +7,4 @@ Used:
 https://gohugo.io/
 
 
-![Example](/static/images/Tournament_for_Anime_Pics-56.png)
+![Example](/static/images/Tournament_for_Anime_Pics-56-new.png)
