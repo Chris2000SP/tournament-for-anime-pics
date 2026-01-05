@@ -159,11 +159,6 @@ function updateStartButton() {
     randomizeBtn.disabled = count < 2;
     startBtn.disabled = count < 2;
     // Update Buttons
-//    if (count >= 2) {
-//        startBtn.textContent = `Tournament starten (${count} Teilnehmer)`;
-//    } else {
-//        startBtn.textContent = `Mindestens 2 Bilder benötigt bzw. falsche Teilnehmerzahl \n (${i} Teilnehmer.)`;
-//    }
     for (var i = 1; i <= count; i++) {
         if (count >= 2 && count == 2**i) {
             startBtn.textContent = `Tournament starten (${count} Teilnehmer)`;
@@ -417,153 +412,6 @@ function drawConnectors() {
     }
 }
 
-//function renderBracket() {
-//    bracket.innerHTML = '';
-//
-//    const numRounds = bracketData.length;
-//
-//    for (let round = 0; round < numRounds; round++) {
-//        const column = document.createElement('div');
-//        column.className = round === numRounds - 1 ? 'bracket-column winner-column' : 'bracket-column';
-//        column.dataset.round = round;
-//
-//        const header = document.createElement('div');
-//        header.className = 'round-header';
-//        header.textContent = getRoundName(round, numRounds);
-//        column.appendChild(header);
-//
-//        const roundMatches = bracketData[round];
-//        const matchPairsCount = Math.ceil(roundMatches.length / 2);
-//
-//        for (let i = 0; i < matchPairsCount; i++) {
-//            const matchPair = document.createElement('div');
-//            matchPair.className = 'match-pair';
-//            matchPair.dataset.index = i;
-//
-//            const idx1 = i * 2;
-//            const idx2 = i * 2 + 1;
-//
-//            if (roundMatches[idx1]) {
-//                matchPair.appendChild(createBracketItem(roundMatches[idx1], round, idx1));
-//            }
-//
-//            if (roundMatches[idx2]) {
-//                matchPair.appendChild(createBracketItem(roundMatches[idx2], round, idx2));
-//            }
-//
-//            column.appendChild(matchPair);
-//
-//            // Füge Verbindungen zur nächsten Runde hinzu, wenn nicht die letzte Runde
-//            if (round < numRounds - 1) {
-//                const nextRoundMatches = bracketData[round + 1];
-//                const nextRoundIndex = Math.floor(i / 2);
-//
-//                if (nextRoundMatches[nextRoundIndex]) {
-//                    const connector = document.createElement('div');
-//                    connector.className = `match-connector round-${round}-to-${round + 1}`;
-//                    matchPair.appendChild(connector);
-//                }
-//            }
-//        }
-//
-//        bracket.appendChild(column);
-//    }
-//
-//    // Füge Verbindungen zwischen den Runden hinzu
-//    for (let round = 0; round < numRounds - 1; round++) {
-//        const currentColumn = document.querySelector(`.bracket-column[data-round="${round}"]`);
-//        const nextColumn = document.querySelector(`.bracket-column[data-round="${round + 1}"]`);
-//    
-//        if (currentColumn && nextColumn) {
-//            const currentMatches = currentColumn.querySelectorAll('.match-pair');
-//            const nextMatches = nextColumn.querySelectorAll('.match-pair');
-//    
-//
-//            const roundConnectorDiv = document.createElement('div');
-//            roundConnectorDiv.className = `round-connector-div`;
-//            currentMatches.forEach((match, index) => {
-//                const nextMatchIndex = Math.floor(index / 2);
-//                if (nextMatches[nextMatchIndex]) {
-//                    // Horizontale Linie (obere Hälfte)
-//                    const horizontalLine = document.createElement('div');
-//                    horizontalLine.className = `round-connector round-${round}-to-${round + 1}`;
-//                    currentColumn.appendChild(horizontalLine);
-//    
-//                    // Positioniere die horizontale Linie
-//                    horizontalLine.style.top = `${match.offsetTop + match.offsetHeight / 2}px`;
-//                    horizontalLine.style.height = '2px';
-//                    horizontalLine.style.left = `${(currentColumn.offsetLeft + currentColumn.offsetWidth)*0.737}px`;
-//                    horizontalLine.style.width = `${(nextColumn.offsetLeft - (currentColumn.offsetLeft + currentColumn.offsetWidth))/2}px`;
-//    
-//                    //if (index < 1) {
-//                        // Vertikale Linie (linke Hälfte)
-//                        const verticalLineLeft = document.createElement('div');
-//                        verticalLineLeft.className = `round-connector round-${round}-to-${round + 1}`;
-//                        currentColumn.appendChild(verticalLineLeft);
-//    
-//                        // Positioniere die vertikale Linie links
-//                        verticalLineLeft.style.top = `${match.offsetTop + match.offsetHeight / 2}px`;
-//                        verticalLineLeft.style.height = `${((nextColumn.offsetTop + nextMatches[nextMatchIndex].offsetTop + nextMatches[nextMatchIndex].offsetHeight) - (match.offsetTop + match.offsetHeight / 2))*1}px`;
-//                        verticalLineLeft.style.left = `${currentColumn.offsetLeft + currentColumn.offsetWidth}px`;
-//                        verticalLineLeft.style.width = '2px';
-//                    //}
-//                    
-//                    // Vertikale Linie (rechte Hälfte)
-//                    const verticalLineRight = document.createElement('div');
-//                    verticalLineRight.className = `round-connector round-${round}-to-${round + 1}`;
-//                    currentColumn.appendChild(verticalLineRight);
-//        
-//                    // Positioniere die vertikale Linie rechts
-//                    verticalLineRight.style.top = `${nextColumn.offsetTop + nextMatches[nextMatchIndex].offsetTop + nextMatches[nextMatchIndex].offsetHeight / 2}px`;
-//                    verticalLineRight.style.height = '2px';
-//                    verticalLineRight.style.left = `${((currentColumn.offsetLeft + currentColumn.offsetWidth)*0.737)*1.75}px`;
-//                    verticalLineRight.style.width = `${(nextColumn.offsetLeft - (currentColumn.offsetLeft + currentColumn.offsetWidth))/1.85}px`;
-//                }
-//            });
-//        }
-//    }
-//}
-
-
-//function renderBracket() {
-//    bracket.innerHTML = '';
-//
-//    const numRounds = bracketData.length;
-//
-//    for (let round = 0; round < numRounds; round++) {
-//        const column = document.createElement('div');
-//        column.className = round === numRounds - 1 ? 'bracket-column winner-column' : 'bracket-column';
-//
-//        const header = document.createElement('div');
-//        header.className = 'round-header';
-//        header.textContent = getRoundName(round, numRounds);
-//        column.appendChild(header);
-//
-//        const roundMatches = bracketData[round];
-//        const matchPairsCount = Math.ceil(roundMatches.length / 2);
-//
-//        for (let i = 0; i < matchPairsCount; i++) {
-//            const matchPair = document.createElement('div');
-//            matchPair.className = 'match-pair';
-//
-//            const idx1 = i * 2;
-//            const idx2 = i * 2 + 1;
-//
-//            if (roundMatches[idx1]) {
-//                matchPair.appendChild(createBracketItem(roundMatches[idx1], round, idx1));
-//            }
-//
-//            if (roundMatches[idx2]) {
-//                matchPair.appendChild(createBracketItem(roundMatches[idx2], round, idx2));
-//            }
-//
-//            column.appendChild(matchPair);
-//        }
-//
-//        bracket.appendChild(column);
-//    }
-//}
-
 function createBracketItem(data, round, index) {
     const item = document.createElement('div');
     item.className = 'bracket-item';
@@ -671,7 +519,7 @@ function showMatchOverlay() {
     
     const roundName = getRoundName(round, bracketData.length);
     matchRoundTitle.textContent = roundName;
-    matchInfo.textContent = 'Klicke auf den Gewinner (Du Streamer)';
+    matchInfo.textContent = 'Klicke auf den Gewinner (Senpai hat entschieden!)';
     
     matchContent.innerHTML = `
         <div class="match-competitor" onclick="selectWinnerFromOverlay(${round}, ${index1})">

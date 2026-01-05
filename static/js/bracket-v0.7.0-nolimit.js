@@ -164,19 +164,6 @@ function updateStartButton() {
     } else {
         startBtn.textContent = `Mindestens 2 Bilder benötigt bzw. falsche Teilnehmerzahl)`;
     }
-//    for (var i = 1; i <= count; i++) {
-//        if (count >= 2 && count == 2**i) {
-//            startBtn.textContent = `Tournament starten (${count} Teilnehmer)`;
-//            randomizeBtn.disabled = count != 2**i;
-//            startBtn.disabled = count != 2**i;
-//            break;
-//        } else {
-//            startBtn.textContent = `Mindestens 2 Bilder benötigt bzw. falsche Teilnehmerzahl \n
-//            (${i} Teilnehmer.)`;
-//            randomizeBtn.disabled = count != 2**i;
-//            startBtn.disabled = count != 2**i;
-//        }
-//    }
 }
 
 startBtn.addEventListener('click', startTournament);
@@ -524,7 +511,7 @@ function showMatchOverlay() {
     
     const roundName = getRoundName(round, bracketData.length);
     matchRoundTitle.textContent = roundName;
-    matchInfo.textContent = 'Klicke auf den Gewinner (Du Streamer)';
+    matchInfo.textContent = 'Klicke auf den Gewinner (Senpai hat entschieden!)';
     
     matchContent.innerHTML = `
         <div class="match-competitor" onclick="selectWinnerFromOverlay(${round}, ${index1})">
