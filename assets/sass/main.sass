@@ -439,6 +439,7 @@ input[type="file"]
   gap: 20px
   min-width: 166px
   position: relative
+  top: 26px
 
   &:last-child .match-pair::after 
     display: none
@@ -448,8 +449,8 @@ input[type="file"]
 
   &-header 
     text-align: center
-    font-size: 1.2em
-    font-weight: bold
+    font-size: 1.3em
+    font-weight: 700
     color: $primary-color
     margin-bottom: 20px
     padding: 10px
@@ -457,7 +458,7 @@ input[type="file"]
     border-radius: $radius-medium
     box-shadow: $shadow-light
     position: absolute
-    top: -35px
+    top: -50px
 
 .match-pair
   display: flex
@@ -502,6 +503,10 @@ input[type="file"]
   &.round-4-to-5
     height: 800px
     top: 3.125%
+
+.bracket-line
+  z-index: 1
+  pointer-events: none
 
 .bracket-item 
   background: white
@@ -766,7 +771,7 @@ input[type="file"]
 nav ul 
   border: 1px solid $border-dashed
   padding: 0.5rem
-  gap: 4rem
+  gap: 1rem
   background: #fafafa
   border-radius: $radius-medium
   justify-content: center
