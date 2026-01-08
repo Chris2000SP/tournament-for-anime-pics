@@ -1,9 +1,9 @@
 // Variablen
 $primary-color: #667eea
 $secondary-color: #764ba2
-$success-color: #4CAF50
-$success-light: #45a049
-$success-dark: #45a049
+$success-color: #FFD700
+$success-green: #4caf50
+$success-dark: #E6B800
 $danger-color: rgb(255, 59, 48)
 $danger-hover: #ff5252
 $warning-color: #FFA726
@@ -81,6 +81,9 @@ $shadow-hover: 0 10px 25px rgba(102, 126, 234, 0.4)
   width: 100%
   object-fit: cover
   border-radius: $radius-small
+
+@import 'main-dark-mode'
+
 
 // Reset
 *
@@ -527,7 +530,7 @@ input[type="file"]
     cursor: pointer
 
   &.winner 
-    border-color: $success-color
+    border-color: $success-green
     background: $bg-success
     box-shadow: 0 4px 15px rgba($success-color, 0.3)
 
@@ -609,6 +612,7 @@ input[type="file"]
   text-align: center
   font-size: 2em
   margin-bottom: 10px
+  filter: drop-shadow(1px 0 0 black) drop-shadow(-1px 0 0 black) drop-shadow(0 1px 0 black) drop-shadow(0 -1px 0 black)
 
 // Winner Display
 .winner-display 
@@ -661,7 +665,7 @@ input[type="file"]
   border-radius: $radius-xxlarge
   padding: 10px
   max-width: 1200px
-  width: 33%
+  width: 46%
   box-shadow: 0 20px 60px rgba(0,0,0,0.5)
   animation: slideUp 0.4s
 
@@ -812,6 +816,11 @@ footer
 
 // Media Queries
 
+@media (max-width: 1920px)
+  .match-competitor
+    img
+      height: 300px
+
 // Tablets und kleinere Desktops
 @media (max-width: 1200px) 
   .bracket 
@@ -822,6 +831,10 @@ footer
 
   .match-content 
     flex-direction: column
+  
+  .match-competitor
+    img
+      height: 300px
 
   .match-vs 
     transform: rotate(90deg)

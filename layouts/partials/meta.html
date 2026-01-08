@@ -3,3 +3,4 @@
 <title>{{ print .Page.Title }}</title>
 {{ $style := resources.Get "sass/main.sass" | css.Sass | resources.Minify }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
+<script src="/js/theme-toggle.js"></script>
