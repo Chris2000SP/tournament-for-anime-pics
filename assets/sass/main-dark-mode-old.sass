@@ -1,0 +1,223 @@
+// Dark Mode Variablen - Füge das ganz oben nach den normalen Variablen ein
+
+// Light Mode (Standard)
+$bg-body-light: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%)
+$bg-container-light: white
+$text-primary-light: $text-dark
+$text-secondary-light: $text-medium
+$card-bg-light: white
+$border-light-mode: $border-color
+
+// Dark Mode
+$primary-dark: #8B9FFF
+$secondary-dark: #9B6FCA
+$bg-body-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)
+$bg-container-dark: #1e1e2e
+$bg-card-dark: #2a2a3e
+$text-primary-dark: #e0e0e0
+$text-secondary-dark: #b0b0b0
+$border-dark-mode: #3a3a4a
+
+$bg-light-dark: #2a2a3e
+$bg-lighter-dark: #323246
+$bg-lightest-dark: #3a3a4a
+$bg-alt-dark: #3a3a50
+
+// Dark Mode Toggle
+body.dark-mode
+  background: $bg-body-dark
+  color: $text-primary-dark
+  
+  // Container
+  .container
+    background: $bg-container-dark
+    color: $text-primary-dark
+  
+  // Phase Indicator
+  .phase-indicator
+    background: $bg-lighter-dark
+    color: $primary-dark
+  
+  // Upload Area
+  .upload-area
+    background: $bg-light-dark
+    border-color: $primary-dark
+    color: $text-primary-dark
+    
+    &:hover
+      background: $bg-lighter-dark
+      border-color: $secondary-dark
+    
+    &.dragover
+      background: $bg-alt-dark
+      border-color: $secondary-dark
+  
+  // Participants
+  .participants-header
+    background: $bg-light-dark
+  
+  .participants-count
+    color: $primary-dark
+  
+  .participants-grid
+    background: $bg-light-dark
+  
+  .participant-card
+    background: $bg-card-dark
+    border-color: $border-dark-mode
+    
+    &:hover
+      border-color: $primary-dark
+  
+  .participant-name
+    color: $text-primary-dark
+  
+  // Tournament Progress
+  .tournament-progress
+    background: $bg-lighter-dark
+  
+  .progress-stat-value
+    color: $primary-dark
+  
+  .progress-stat-label
+    color: $text-secondary-dark
+  
+  // Match Container
+  .round-title
+    color: $primary-dark
+  
+  .match
+    background: $bg-card-dark
+    border-color: $border-dark-mode
+  
+  .competitor
+    background: $bg-card-dark
+    border-color: $border-dark-mode
+    
+    &:hover
+      border-color: $primary-dark
+    
+    &-name
+      color: $text-primary-dark
+  
+  .vs-divider
+    color: $secondary-dark
+  
+  // Bracket
+  .bracket-container
+    background: $bg-light-dark
+  
+  .bracket-column
+    .round-header
+      background: $bg-card-dark
+      color: $primary-dark
+      border: 2px solid $primary-dark
+  
+  .bracket-item
+    background: $bg-card-dark
+    border-color: $border-dark-mode
+    
+    &:hover:not(.winner):not(.loser):not(.empty)
+      border-color: $primary-dark
+    
+    &-name
+      color: $text-primary-dark
+    
+    &.empty
+      background: $bg-lightest-dark
+      color: $text-secondary-dark
+    
+    &.current-match
+      background: rgba($warning-color, 0.2)
+  
+  .bracket-line
+    background: $primary-dark !important
+  
+  // Winner Column bleibt golden - ist ein Highlight
+  .winner-column .bracket-item
+    &.winner
+      // Bleibt wie im Light Mode für maximalen Kontrast
+      color: white
+  
+  // Match Overlay
+  .match-overlay
+    background: rgba(0, 0, 0, 0.92)
+  
+  .match-window
+    background: $bg-container-dark
+  
+  .match-round-title
+    color: $primary-dark
+  
+  .match-info
+    color: $text-secondary-dark
+  
+  .match-competitor
+    background: $bg-card-dark
+    border-color: $border-dark-mode
+    
+    &:hover
+      background: $bg-lighter-dark
+      border-color: $primary-dark
+  
+  .match-competitor-name
+    color: $text-primary-dark
+  
+  .match-click-hint
+    color: $primary-dark
+  
+  .match-vs
+    color: $secondary-dark
+  
+  // Navigation
+  nav ul
+    background: $bg-card-dark
+    border-color: $border-dark-mode
+    
+    a
+      color: $primary-dark
+  
+  // Footer
+  footer
+    background: $bg-card-dark
+    border-color: $border-dark-mode
+    color: $text-secondary-dark
+  
+  // H1
+  h1
+    color: $primary-dark
+
+// Dark Mode Toggle Button (füge das HTML auch ein!)
+.theme-toggle
+  position: fixed
+  top: 20px
+  right: 20px
+  z-index: 9999
+  
+  button
+    @include button-base
+    padding: 12px 20px
+    background: $bg-card-dark
+    color: $text-primary-dark
+    border: 2px solid $primary-dark
+    font-size: 1.1em
+    display: flex
+    align-items: center
+    gap: 8px
+    margin-top: 66px
+    
+    &:hover
+      background: $primary-dark
+      color: white
+      transform: translateY(-2px)
+    
+    .icon
+      font-size: 1.3em
+
+body.dark-mode .theme-toggle button
+  background: $primary-dark
+  color: white
+  border-color: $secondary-dark
+  
+  &:hover
+    background: $secondary-dark
