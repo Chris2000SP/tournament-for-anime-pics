@@ -187,37 +187,38 @@ body.dark-mode
   h1
     color: $primary-dark
 
-// Dark Mode Toggle Button (füge das HTML auch ein!)
+// Dark Mode Toggle Button (für Navigation)
 .theme-toggle
-  position: fixed
-  top: 20px
-  right: 20px
-  z-index: 9999
+  display: inline-block
   
   button
-    @include button-base
-    padding: 12px 20px
-    background: $bg-card-dark
-    color: $text-primary-dark
-    border: 2px solid $primary-dark
-    font-size: 1.1em
+    border: none
+    border-radius: $radius-large
+    cursor: pointer
+    font-weight: bold
+    transition: $transition-default
+    padding: 10px 18px
+    background: rgba($primary-color, 0.1)
+    color: $primary-color
+    border: 2px solid $primary-color
+    font-size: 1em
     display: flex
     align-items: center
-    gap: 8px
-    margin-top: 66px
+    gap: 6px
     
     &:hover
-      background: $primary-dark
+      background: $primary-color
       color: white
       transform: translateY(-2px)
     
     .icon
-      font-size: 1.3em
+      font-size: 1.2em
 
 body.dark-mode .theme-toggle button
-  background: $primary-dark
-  color: white
-  border-color: $secondary-dark
+  background: rgba($primary-dark, 0.2)
+  color: $primary-dark
+  border-color: $primary-dark
   
   &:hover
-    background: $secondary-dark
+    background: $primary-dark
+    color: white
